@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "XTECDigital-web"
+    }
+  },
+  "defaultProject": "XTECDigital-web",
+  "cli": {
+    "analytics": "3ab4e7a6-8cb5-43f5-b11e-bc38453d3c87"
+  }
 }
