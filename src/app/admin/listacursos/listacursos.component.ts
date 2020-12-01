@@ -6,10 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listacursos.component.scss']
 })
 export class ListacursosComponent implements OnInit {
-
-  constructor() { }
+  cursos: any;
+  constructor() {
+    this.cursos = [
+      {codigo: '123',
+        nombre: 'bases',
+        creditos: '4',
+        carrera: 'computadores'
+    }, {codigo: '432',
+        nombre: 'ca',
+        creditos: '4',
+        carrera: 'electronica'}];
+  }
 
   ngOnInit(): void {
+  }
+  agregar(): void{
+    console.log('agregado');
+  }
+  eliminar(): void{
+    console.log('eliminado');
   }
 
 }
