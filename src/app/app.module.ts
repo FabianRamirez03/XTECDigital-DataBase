@@ -5,19 +5,30 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ListacursosComponent } from './admin/listacursos/listacursos.component';
-
+import {
+  DetailsViewService,
+  FileManagerModule,
+  NavigationPaneService,
+  ToolbarService
+} from '@syncfusion/ej2-angular-filemanager';
+import { FormsModule } from '@angular/forms';
+import { FilesComponent } from './componentes/files/files.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     LoginComponent,
-    ListacursosComponent
+    ListacursosComponent,
+    FilesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    FileManagerModule,
+
   ],
-  providers: [],
+  providers: [NavigationPaneService, ToolbarService, DetailsViewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
