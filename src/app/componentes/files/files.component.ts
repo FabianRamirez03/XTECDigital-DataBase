@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesComponent implements OnInit {
   public hostUrl = 'https://localhost:5001/Documentos';
+ // public hostUrl = 'http://localhost:62869/';
   public ajaxSettings: object;
   public enablePersistence: boolean;
-  public Path = '/CE3101';
+  public Path : string;
   public enableRtl: boolean;
-  constructor() {alert(this.Path); }
+  public view: string;
+  constructor() {}
 
   public ngOnInit(): void {
     this.ajaxSettings = {
@@ -20,12 +22,11 @@ export class FilesComponent implements OnInit {
       uploadUrl: this.hostUrl + 'api/FileManager/Upload',
       downloadUrl: this.hostUrl + 'api/FileManager/Download'
     };
-    this.Path = '/CE3101';
+    this.view = 'Details';
+    // this.Path = '/CE3101';
     this.enableRtl = true;
-    this.enablePersistence = true;
+    this.enablePersistence = false;
   }
-
-
   // File Manager's file onSuccess function
   onAjaxSuccess(args: any): any {
     console.log('Ajax request successful');
@@ -33,6 +34,22 @@ export class FilesComponent implements OnInit {
   // File Manager's file onError function
   onAjaxFailure(args: any): any {
     console.log('Ajax request has failed');
+  }
+
+  // File Manager's beforeSend event
+  beforeSend(args: any): any {
+    // Add custom parameter
+    const Curso = JSON.parse(args.ajaxSettings.data);
+    // Declare a custom parameter "column"
+    Curso.Curso = 'CE3101';
+    Curso.Grupo = 1;
+    // Add custom parameter to ajax settings
+    args.ajaxSettings.data = JSON.stringify(Curso);
+    // Ajax beforeSend event
+    args.ajaxSettings.beforeSend = function (args) {
+      // Setting authorization header
+      args.httpRequest.setRequestHeader('Authorization', 'Bearer-1233')
+    };
   }
 
 }
