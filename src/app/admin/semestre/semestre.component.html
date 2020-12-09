@@ -1,0 +1,46 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+  $('#yearPicker').datetimepicker({
+    format      :   "YYYY",
+    viewMode    :   "years",
+  });
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="login-dark">
+  <div align="center">
+    <caption><h2><ins><i></i></ins></h2></caption>
+  </div>
+
+  <table style="width:75%;" align="center">
+
+    <tr>
+      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>Semestres</h3></th>
+    </tr>
+
+    <tr style="background-color:#32A9EE;color:white;">
+      <th>Año</th>
+      <th>Periodo</th>
+      <th><button  type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Excel</button></th>
+    </tr>
+    <tr>
+      <td><input type="date" id="birthDate" class="form-control"></td>
+      <td><select class="form-control" id="periodo">
+        <option value="I">I</option>
+        <option value="II">II</option>
+        <option value="Verano">Verano</option>
+      </select></td>
+      <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
+    </tr>
+    <tr *ngFor="let semestre of semestres">
+      <td><b>{{semestre.ano}}</b></td>
+      <td>{{semestre.periodo}}</td>
+      <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Ver</button></td>
+    </tr>
+  </table>
+</div>
+
