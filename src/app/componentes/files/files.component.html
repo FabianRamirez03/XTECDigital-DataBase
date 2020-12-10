@@ -1,3 +1,2 @@
-<ejs-filemanager id='file-manager' (beforeSend)="beforeSend($event)" [ajaxSettings]='ajaxSettings' [path]="Path"
-                 [enablePersistence]='enablePersistence' [view]='view' (success)='onAjaxSuccess($event)' (failure)='onAjaxFailure($event)'>
+<ejs-filemanager #filemanager id='overview' [ajaxSettings]='ajaxSettings' (beforeSend)="beforeSend($event)" [view]='view'  (toolbarClick)='toolbarClick($event)' (menuClick)='menuClick($event)' (success)='onAjaxSuccess($event)' (failure)='onAjaxFailure($event)'>
 </ejs-filemanager>
