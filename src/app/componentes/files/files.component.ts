@@ -43,6 +43,15 @@ export class FilesComponent implements OnInit {
   // File Manager's file onError function
   onAjaxFailure(args: any): any {
     console.log('Ajax request has failed');
+    try{
+      const header = args.response.headers;
+      let statusMessage = header.slice(header.indexOf('status'), header.indexOf('date'));
+      statusMessage = statusMessage.slice(statusMessage.indexOf(',') + 1);
+      args.statusText = statusMessage.trim();
+    }
+    catch {
+      return;
+    }
   }
 
   // File Manager's beforeSend event
@@ -51,8 +60,13 @@ export class FilesComponent implements OnInit {
     if (args.action === 'Upload') {
       const data = JSON.parse(args.ajaxSettings.data);
       // Allow custom data for upload operations
-      data.push({ Curso: 'CE3101' });
+      data.push({ Curso: this.curso});
+      data.push({ Grupo: this.grupo});
       args.ajaxSettings.data = JSON.stringify(data);
+      args.ajaxSettings.beforeSend = function(args) {
+        // Setting authorization header
+        args.httpRequest.setRequestHeader('Authorization', 'Bearer-1233');
+      };
     }
     else{
       const Curso = JSON.parse(args.ajaxSettings.data);
