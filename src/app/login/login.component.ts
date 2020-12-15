@@ -15,20 +15,22 @@ export class LoginComponent implements OnInit {
   constructor(public httpService: HttpClient, private router: Router) { }
   login(): void{
     this.user = (document.getElementById('user') as HTMLInputElement).value;
-    const userAsInteger: number = +this.user;
     this.password = (document.getElementById('password') as HTMLInputElement).value;
     this.httpService.post('https://localhost:5001/Usuario/validarUser',
-      { carnet: userAsInteger, password: this.password}).subscribe(
-      (resp: HttpResponse<object>) => { this.existe = resp;
-
-                                        // @ts-ignore
-                                        if (resp.carnet != null){
-          console.log(resp);
+      { carnet: this.user, password: this.password}).subscribe(
+      (resp: HttpResponse<object>) =>
+      {
+        this.existe = resp;
+        // @ts-ignore
+        // tslint:disable-next-line:triple-equals
+        if (resp[0][0].error == 'null'){
+          // Hay que guardar la info del estudiante qué está
           this.router.navigate(['/', 'ListaCursos']);
         }
         else{
-          console.log('notwins');
-        }});
+          alert(resp[0][0].error);
+        }
+      });
   }
   ngOnInit(): void {
   }
