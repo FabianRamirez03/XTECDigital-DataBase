@@ -7,7 +7,14 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
   styleUrls: ['./listacursos.component.scss']
 })
 export class ListacursosComponent implements OnInit {
+  respuesta: any;
   cursos: any;
+  codigo: string;
+  nombre: string;
+  carrera: string;
+  creditos: string;
+  habilitado: boolean;
+  cedulaAdmin: string;
   constructor(public httpService: HttpClient) {
   }
 
@@ -25,7 +32,32 @@ export class ListacursosComponent implements OnInit {
     this.setCursos();
   }
   agregar(): void{
-    console.log('agregado');
+    this.codigo = (document.getElementById('codigo') as HTMLInputElement).value;
+    this.nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+    this.carrera = (document.getElementById('carrera') as HTMLInputElement).value;
+    this.creditos = (document.getElementById('creditos') as HTMLInputElement).value;
+    this.habilitado = true;
+    this.cedulaAdmin = '11111';
+    this.httpService.post('https://localhost:5001/Curso/crearCurso',
+      {
+        codigo: this.codigo,
+        nombre: this.nombre,
+        carrera: this.carrera,
+        creditos: +this.creditos,
+        habilitado: this.habilitado,
+        cedulaAdmin: this.cedulaAdmin
+            }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.respuesta = resp;
+        // tslint:disable-next-line:triple-equals
+        if (resp[0].respuesta != 'error'){
+          alert(resp[0].error);
+        }else{
+          console.log(resp[0].respuesta);
+        }
+      }
+    );
   }
   eliminar(): void{
     console.log('eliminado');

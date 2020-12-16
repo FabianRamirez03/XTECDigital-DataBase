@@ -15,6 +15,7 @@ import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import {MessengerService} from './MessengerService';
+// @ts-ignore
 import {
   DetailsViewService,
   FileManagerModule,
