@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NotasComponent implements OnInit {
   rubros: any;
   notaFinal: any;
+  imageByte: string;
   constructor() {
     this.rubros = [
       {nombre: 'Quiz',
@@ -36,5 +37,13 @@ export class NotasComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  setByteArray(files): void {
+    const reader = new FileReader();
+    // this.profile.image = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = e => {
+      const bytes = reader.result;
+      this.imageByte = bytes.toString();
+    };
+  }
 }
