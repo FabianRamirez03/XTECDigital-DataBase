@@ -22,19 +22,21 @@ export class FilesComponent implements OnInit {
   public filemanagerObj: FileManagerComponent;
   public view: string;
   public curso: string;
+  public isAdmin: boolean;
   public grupo: number;
   constructor() {this.curso = 'CE3101'; this.grupo = 1; }
 
   public ngOnInit(): void {
     this.ajaxSettings = {
       url: this.hostUrl + '/FileOperations',
-      getImageUrl: this.hostUrl + 'api/FileManager/GetImage',
+      getImageUrl: this.hostUrl + '/GetImage',
       uploadUrl: this.hostUrl + '/Upload',
       downloadUrl: this.hostUrl + '/Download'
     };
     this.view = 'Details';
     this.enableRtl = true;
     this.enablePersistence = true;
+    this.isAdmin = true;
   }
   // File Manager's file onSuccess function
   onAjaxSuccess(args: any): any {
@@ -62,6 +64,8 @@ export class FilesComponent implements OnInit {
       // Allow custom data for upload operations
       data.push({ Curso: this.curso});
       data.push({ Grupo: this.grupo});
+      data.push({ Ubic: this.filemanagerObj.path});
+      data.push({ admin: this.isAdmin});
       args.ajaxSettings.data = JSON.stringify(data);
       args.ajaxSettings.beforeSend = function(args) {
         // Setting authorization header
@@ -71,8 +75,10 @@ export class FilesComponent implements OnInit {
     else{
       const Curso = JSON.parse(args.ajaxSettings.data);
       // Declare a custom parameter "column"
-      Curso.Curso = 'CE3101';
-      Curso.Grupo = 1;
+      Curso.Curso = this.curso;
+      Curso.Grupo = this.grupo;
+      Curso.admin = this.isAdmin;
+      Curso.Ubic = this.filemanagerObj.path;
       // Add custom parameter to ajax settings
       args.ajaxSettings.data = JSON.stringify(Curso);
       // Ajax beforeSend event
@@ -103,11 +109,12 @@ export class FilesComponent implements OnInit {
       // Creating data for the controller
       const data = {
         action: 'download',
-        curso: 'CE3101',
+        curso: this.curso,
         path: this.filemanagerObj.path,
         names: flag ? this.filemanagerObj.selectedItems : [''],
         data: files.length === 0 ? this.filemanagerObj.getSelectedFiles() : files,
-        grupo: 1
+        grupo: this.grupo,
+        admin: this.isAdmin
       };
       // initiating a XHR request
       const xhr: XMLHttpRequest = new XMLHttpRequest();
@@ -149,4 +156,7 @@ export class FilesComponent implements OnInit {
   }
 
 
+  beforeImage(args: any): any {
+    args.imageUrl = args.imageUrl + '&Curso=' + this.curso + '&Grupo=' + this.grupo.toString() + '&Ubic=' + this.filemanagerObj.path;
+  }
 }
