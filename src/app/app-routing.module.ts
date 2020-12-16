@@ -8,6 +8,7 @@ import { AddProfesorComponent } from './admin/add-profesor/add-profesor.componen
 import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.component';
 import {FilesComponent} from './componentes/files/files.component';
 import { NotasComponent } from './estudiante/notas/notas.component';
+import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'AddProfesor', component: AddProfesorComponent},
   {path: 'AddEstudiante', component: AddEstudianteComponent},
   {path: 'NotasEstudiante', component: NotasComponent},
+  {path: 'Noticias', component: NoticiasComponent},
 ];
 
 @NgModule({
@@ -28,4 +30,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 // @ts-ignore
 export const routingComponents = [LoginComponent, ListacursosComponent, SemestreComponent, AddsemestreComponent, AddProfesorComponent,
-  AddEstudianteComponent, NotasComponent];
+  AddEstudianteComponent, NotasComponent, NoticiasComponent];
