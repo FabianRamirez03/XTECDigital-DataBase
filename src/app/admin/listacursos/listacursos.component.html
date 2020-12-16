@@ -30,12 +30,12 @@
       <td><input type="text" id="carrera" placeholder="Carrera"></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
-    <tr *ngFor="let curso of cursos">
+    <tr *ngFor="let curso of cursos | slice:1">
       <td><b>{{curso.codigo}}</b></td>
       <td>{{curso.nombre}}</td>
       <td>{{curso.creditos}}</td>
       <td>{{curso.carrera}}</td>
-      <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>
+      <td><a class="btn btn-danger" (click)="eliminar(curso.codigo)"><em class="fa fa-trash"></em></a></td>
     </tr>
   </table>
 </div>

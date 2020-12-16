@@ -1,0 +1,35 @@
+<div class="login-dark">
+  <div class="center">
+
+  <div class="card" *ngFor="let noticia of noticias">
+    <div class="additional">
+      <div class="user-card">
+        <div class="level center">
+          {{noticia.curso}}
+        </div>
+        <div class="points center">
+          {{noticia.grupo}}
+        </div>
+
+
+      </div>
+      <div class="more-info">
+        <h1>{{noticia.titulo}}</h1>
+        <div class="coords">
+          <span>Grupo: {{noticia.grupo}}</span>
+          <span>{{noticia.fecha}}</span>
+        </div>
+        <div class="coords">
+          <span>Curso: {{noticia.curso}}</span>
+          <span>{{noticia.profesor}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="general">
+      <h1>{{noticia.titulo}}</h1>
+      <p>{{noticia.comunicado}}</p>
+    </div>
+  </div>
+
+  </div>
+</div>

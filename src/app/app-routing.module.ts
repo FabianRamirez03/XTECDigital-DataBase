@@ -7,6 +7,8 @@ import { AddsemestreComponent } from './admin/addsemestre/addsemestre.component'
 import { AddProfesorComponent } from './admin/add-profesor/add-profesor.component';
 import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.component';
 import {FilesComponent} from './componentes/files/files.component';
+import { NotasComponent } from './estudiante/notas/notas.component';
+import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'AddSemestre', component: AddsemestreComponent},
   {path: 'AddProfesor', component: AddProfesorComponent},
   {path: 'AddEstudiante', component: AddEstudianteComponent},
+  {path: 'NotasEstudiante', component: NotasComponent},
+  {path: 'Noticias', component: NoticiasComponent},
 ];
 
 @NgModule({
@@ -24,5 +28,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+// @ts-ignore
 export const routingComponents = [LoginComponent, ListacursosComponent, SemestreComponent, AddsemestreComponent, AddProfesorComponent,
-  AddEstudianteComponent];
+  AddEstudianteComponent, NotasComponent, NoticiasComponent];
