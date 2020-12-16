@@ -59,8 +59,13 @@ export class ListacursosComponent implements OnInit {
       }
     );
   }
-  eliminar(): void{
-    console.log('eliminado');
+  eliminar(codigoCurso): void{
+    this.httpService.post('https://localhost:5001/Curso/habilitar_deshabilitarCurso', {codigo: codigoCurso}).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        console.log('Curso deshabilitado');
+      }
+    );
   }
 
 }
