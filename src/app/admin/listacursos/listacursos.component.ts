@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-listacursos',
@@ -7,19 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListacursosComponent implements OnInit {
   cursos: any;
-  constructor() {
-    this.cursos = [
-      {codigo: '123',
-        nombre: 'bases',
-        creditos: '4',
-        carrera: 'computadores'
-    }, {codigo: '432',
-        nombre: 'ca',
-        creditos: '4',
-        carrera: 'electronica'}];
+  constructor(public httpService: HttpClient) {
+  }
+
+  setCursos(): void{
+    this.httpService.post('https://localhost:5001/Curso/verCursos', {}).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.cursos = resp;
+        console.log(resp);
+      }
+      );
   }
 
   ngOnInit(): void {
+    this.setCursos();
   }
   agregar(): void{
     console.log('agregado');
