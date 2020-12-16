@@ -18,6 +18,14 @@ import {MessengerService} from './MessengerService';
 import {MatInputModule} from '@angular/material/input';
 
 
+import {
+  DetailsViewService,
+  FileManagerModule,
+  NavigationPaneService,
+  ToolbarService
+} from '@syncfusion/ej2-angular-filemanager';
+import { FormsModule } from '@angular/forms';
+import { FilesComponent } from './componentes/files/files.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +36,15 @@ import {MatInputModule} from '@angular/material/input';
     AddsemestreComponent,
     AddProfesorComponent,
     AddEstudianteComponent
+    ListacursosComponent,
+    FilesComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    FileManagerModule,
+
     AppRoutingModule,
     MatButtonModule,
     MatDialogModule,
@@ -40,6 +54,8 @@ import {MatInputModule} from '@angular/material/input';
     FormsModule,
     BrowserAnimationsModule
   ],
+  providers: [NavigationPaneService, ToolbarService, DetailsViewService],
+  bootstrap: [AppComponent]
   providers: [MessengerService, DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [AddProfesorComponent,
