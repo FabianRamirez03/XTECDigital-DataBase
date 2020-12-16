@@ -15,16 +15,12 @@ import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import {MessengerService} from './MessengerService';
-import {MatInputModule} from '@angular/material/input';
-
-
 import {
   DetailsViewService,
   FileManagerModule,
   NavigationPaneService,
   ToolbarService
 } from '@syncfusion/ej2-angular-filemanager';
-import { FormsModule } from '@angular/forms';
 import { FilesComponent } from './componentes/files/files.component';
 @NgModule({
   declarations: [
@@ -35,7 +31,7 @@ import { FilesComponent } from './componentes/files/files.component';
     SemestreComponent,
     AddsemestreComponent,
     AddProfesorComponent,
-    AddEstudianteComponent
+    AddEstudianteComponent,
     ListacursosComponent,
     FilesComponent
   ],
@@ -54,9 +50,7 @@ import { FilesComponent } from './componentes/files/files.component';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [NavigationPaneService, ToolbarService, DetailsViewService],
-  bootstrap: [AppComponent]
-  providers: [MessengerService, DatePipe],
+  providers: [NavigationPaneService, ToolbarService, DetailsViewService, MessengerService, DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [AddProfesorComponent,
     AddEstudianteComponent]
