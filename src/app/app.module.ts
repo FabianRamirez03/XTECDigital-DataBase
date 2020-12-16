@@ -2,10 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-
 import {HttpClient, HttpClientModule, HttpResponse} from '@angular/common/http';
-
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
@@ -44,6 +41,8 @@ import {MatInputModule} from '@angular/material/input';
     BrowserAnimationsModule
   ],
   providers: [MessengerService, DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddProfesorComponent,
+    AddEstudianteComponent]
 })
 export class AppModule { }

@@ -12,12 +12,12 @@ export class AddsemestreComponent implements OnInit {
   cursosSemestre: any;
   cursos: any;
   constructor(public dialog: MatDialog) {
-    this.cursos = [{nombre: 'bases'},{nombre: 'senales'},{nombre: 'anpi'}];
+    this.cursos = [{nombre: 'bases'}, {nombre: 'senales'}, {nombre: 'anpi'}];
     this.cursosSemestre = [
       {grupo: '1',
         curso: 'bases'
       }, {grupo: '432',
-        curso: 'ca',}];
+        curso: 'ca'}];
   }
 
   ngOnInit(): void {
