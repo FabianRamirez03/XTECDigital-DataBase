@@ -1,0 +1,67 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- http://www.jquery2dotnet.com/ -->
+<div class="login-dark">
+  <div align="center">
+    <caption><h2><ins><i></i></ins></h2></caption>
+  </div>
+  <div class="container" *ngFor="let rubro of rubros">
+    <div class="row" style="width:2300px;">
+      <div class="col-xs-12 col-md-6">
+        <div class="well well-sm">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 text-center">
+              <h1 class="rating-num">
+                {{rubro.notagen}}</h1>
+              <div class="rating">{{rubro.nombre}}
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6" >
+              <div class="row rating-desc" *ngFor="let asignacion of rubro.asignaciones">
+                <div class="col-xs-3 col-md-3 text-right">{{asignacion.nombre}}
+                </div>
+                <div class="col-xs-8 col-md-9">
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+                         aria-valuemin="0" aria-valuemax="100" style="width: {{asignacion.nota}}%">
+                      <span class="sr-only">{{asignacion.nota}}%</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- termina asignacion -->
+              </div>
+              <!-- termina asiganciones -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- termina rubro -->
+  </div>
+
+  <!-- Nota final -->
+  <div class="container">
+    <div class="row" style="width:2300px;">
+      <div class="col-xs-12 col-md-6">
+        <div class="card text-white bg-info mb-4">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 text-center">
+              <h1 class="rating-num"> Nota Final</h1>
+            </div>
+            <div class="col-xs-12 col-md-6" align="right" >
+              <div class="row rating-desc">
+                <div class="col-xs-8 col-md-9">
+                  <h1 class="rating-num"> {{notaFinal}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

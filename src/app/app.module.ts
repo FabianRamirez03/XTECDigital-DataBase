@@ -23,6 +23,8 @@ import {
   ToolbarService
 } from '@syncfusion/ej2-angular-filemanager';
 import { FilesComponent } from './componentes/files/files.component';
+import { NotasComponent } from './estudiante/notas/notas.component';
+import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import { FilesComponent } from './componentes/files/files.component';
     AddProfesorComponent,
     AddEstudianteComponent,
     ListacursosComponent,
-    FilesComponent
+    FilesComponent,
+    NotasComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,

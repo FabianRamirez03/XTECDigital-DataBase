@@ -12,9 +12,9 @@ export class SemestreComponent implements OnInit {
   semestres: any;
   constructor(public dialog: MatDialog) {
     this.semestres = [
-      {ano: '2020',
+      {anio: '2020',
         periodo: 'I'
-      }, {ano: '2020',
+      }, {anio: '2020',
         periodo: 'II'}];
   }
 
