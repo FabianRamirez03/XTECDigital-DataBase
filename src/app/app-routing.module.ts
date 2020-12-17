@@ -10,9 +10,9 @@ import {FilesComponent} from './componentes/files/files.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
-  {path: 'Login', component: LoginComponent},
-  {path: 'ListaCursos', component: ListacursosComponent},
-  {path: 'Files', component: FilesComponent},
+  {path: 'Login', component: LoginComponent},  // listo
+  {path: 'ListaCursos', component: ListacursosComponent},  // listo
+  {path: 'Files', component: FilesComponent},  // Wajo
   {path: 'Semestre', component: SemestreComponent},
   {path: 'AddSemestre', component: AddsemestreComponent},
   {path: 'AddProfesor', component: AddProfesorComponent},

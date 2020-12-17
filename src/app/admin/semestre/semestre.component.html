@@ -28,7 +28,7 @@
       <th><button  type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Excel</button></th>
     </tr>
     <tr>
-      <td><input type="date" id="birthDate" class="form-control"></td>
+      <td><input  type="number" min="1900" max="2099" step="1" value="2020" id="ano" class="form-control"></td>
       <td><select class="form-control" id="periodo">
         <option value="I">I</option>
         <option value="II">II</option>
@@ -36,7 +36,7 @@
       </select></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
-    <tr *ngFor="let semestre of semestres">
+    <tr *ngFor="let semestre of semestres | slice:1">
       <td><b>{{semestre.ano}}</b></td>
       <td>{{semestre.periodo}}</td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Ver</button></td>
