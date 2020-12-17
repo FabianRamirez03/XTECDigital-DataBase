@@ -15,7 +15,7 @@ export class ListacursosComponent implements OnInit {
   creditos: string;
   habilitado: boolean;
   cedulaAdmin: string;
-  constructor(public httpService: HttpClient) {
+  constructor(public httpService: HttpClient ) {
   }
 
   setCursos(): void{
@@ -52,9 +52,9 @@ export class ListacursosComponent implements OnInit {
         this.respuesta = resp;
         // tslint:disable-next-line:triple-equals
         if (resp[0].respuesta != 'error'){
-          alert(resp[0].error);
+          this.ngOnInit();
         }else{
-          console.log(resp[0].respuesta);
+          alert(resp[0].error);
         }
       }
     );
