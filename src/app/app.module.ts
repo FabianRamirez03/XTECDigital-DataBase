@@ -28,6 +28,9 @@ import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 import { RubrosComponent } from './profesor/rubros/rubros.component';
 import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
 import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.component';
+import { HeaderAdminComponent } from './componentes/header-admin/header-admin.component';
+import { HeaderEstudianteComponent } from './componentes/header-estudiante/header-estudiante.component';
+import { HeaderProfesorComponent } from './componentes/header-profesor/header-profesor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.componen
     NoticiasComponent,
     RubrosComponent,
     AsignacionesComponent,
-    AddNoticiaComponent
+    AddNoticiaComponent,
+    HeaderAdminComponent,
+    HeaderEstudianteComponent,
+    HeaderProfesorComponent
   ],
   imports: [
     BrowserModule,
