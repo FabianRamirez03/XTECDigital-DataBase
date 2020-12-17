@@ -27,6 +27,7 @@ import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 import { RubrosComponent } from './profesor/rubros/rubros.component';
 import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
+import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.comp
     NotasComponent,
     NoticiasComponent,
     RubrosComponent,
-    AsignacionesComponent
+    AsignacionesComponent,
+    AddNoticiaComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 import { RubrosComponent } from './profesor/rubros/rubros.component';
 import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
+import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'Noticias', component: NoticiasComponent},
   {path: 'Asignaciones', component: AsignacionesComponent},
   {path: 'Rubros', component: RubrosComponent},
+  {path: 'AddNoticia', component: AddNoticiaComponent},
 ];
 
 @NgModule({
@@ -34,4 +36,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 // @ts-ignore
 export const routingComponents = [LoginComponent, ListacursosComponent, SemestreComponent, AddsemestreComponent, AddProfesorComponent,
-  AddEstudianteComponent, NotasComponent, NoticiasComponent, AsignacionesComponent, RubrosComponent];
+  AddEstudianteComponent, NotasComponent, NoticiasComponent, AsignacionesComponent, RubrosComponent, AddNoticiaComponent];
