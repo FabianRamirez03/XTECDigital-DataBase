@@ -15,6 +15,7 @@ import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import {MessengerService} from './MessengerService';
+import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
 // @ts-ignore
 import {
   DetailsViewService,
@@ -25,6 +26,8 @@ import {
 import { FilesComponent } from './componentes/files/files.component';
 import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
+import { EvaluarComponent } from './profesor/evaluar/evaluar.component';
+import { ListaEstudiantesComponent } from './profesor/lista-estudiantes/lista-estudiantes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,14 +41,16 @@ import { NoticiasComponent } from './estudiante/noticias/noticias.component';
     ListacursosComponent,
     FilesComponent,
     NotasComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    EvaluarComponent,
+    ListaEstudiantesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     FileManagerModule,
-
+    AccordionModule,
     AppRoutingModule,
     MatButtonModule,
     MatDialogModule,

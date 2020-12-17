@@ -9,6 +9,7 @@ import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.co
 import {FilesComponent} from './componentes/files/files.component';
 import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
+import {EvaluarComponent} from './profesor/evaluar/evaluar.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'AddEstudiante', component: AddEstudianteComponent},
   {path: 'NotasEstudiante', component: NotasComponent},
   {path: 'Noticias', component: NoticiasComponent},
+  {path: 'Evaluar', component: EvaluarComponent},
 ];
 
 @NgModule({
