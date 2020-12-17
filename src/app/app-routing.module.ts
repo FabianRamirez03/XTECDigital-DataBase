@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'Login', component: LoginComponent},  // listo
   {path: 'ListaCursos', component: ListacursosComponent},  // listo
   {path: 'Files', component: FilesComponent},  // Wajo
-  {path: 'Semestre', component: SemestreComponent},
-  {path: 'AddSemestre', component: AddsemestreComponent},
+  {path: 'Semestre', component: SemestreComponent},  // listo
+  {path: 'Grupos', component: AddsemestreComponent},
   {path: 'AddProfesor', component: AddProfesorComponent},
   {path: 'AddEstudiante', component: AddEstudianteComponent},
 ];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AddEstudianteComponent} from '../add-estudiante/add-estudiante.component';
 import {AddProfesorComponent} from '../add-profesor/add-profesor.component';
 import {MatDialog} from '@angular/material/dialog';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-addsemestre',
@@ -11,7 +12,8 @@ import {MatDialog} from '@angular/material/dialog';
 export class AddsemestreComponent implements OnInit {
   cursosSemestre: any;
   cursos: any;
-  constructor(public dialog: MatDialog) {
+  cursosDisponibles: any;
+  constructor(public dialog: MatDialog, public httpService: HttpClient ) {
     this.cursos = [{nombre: 'bases'}, {nombre: 'senales'}, {nombre: 'anpi'}];
     this.cursosSemestre = [
       {grupo: '1',
@@ -21,6 +23,7 @@ export class AddsemestreComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setCursosDisponibles();
   }
   agregar(): void{
     console.log('agregado');
@@ -58,6 +61,16 @@ export class AddsemestreComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(res => {console.log(res); });
+  }
+
+  setCursosDisponibles(): void{
+    this.httpService.post('https://localhost:5001/Curso/verCursos', {}).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.cursosDisponibles = resp;
+        console.log(resp);
+      }
+    );
   }
 
 }
