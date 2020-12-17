@@ -25,6 +25,8 @@ import {
 import { FilesComponent } from './componentes/files/files.component';
 import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
+import { RubrosComponent } from './profesor/rubros/rubros.component';
+import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { NoticiasComponent } from './estudiante/noticias/noticias.component';
     ListacursosComponent,
     FilesComponent,
     NotasComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    RubrosComponent,
+    AsignacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,6 @@ import { NoticiasComponent } from './estudiante/noticias/noticias.component';
   providers: [NavigationPaneService, ToolbarService, DetailsViewService, MessengerService, DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [AddProfesorComponent,
-    AddEstudianteComponent]
+    AddEstudianteComponent, AsignacionesComponent]
 })
 export class AppModule { }

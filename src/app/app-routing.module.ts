@@ -9,6 +9,8 @@ import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.co
 import {FilesComponent} from './componentes/files/files.component';
 import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
+import { RubrosComponent } from './profesor/rubros/rubros.component';
+import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'AddEstudiante', component: AddEstudianteComponent},
   {path: 'NotasEstudiante', component: NotasComponent},
   {path: 'Noticias', component: NoticiasComponent},
+  {path: 'Asignaciones', component: AsignacionesComponent},
+  {path: 'Rubros', component: RubrosComponent},
 ];
 
 @NgModule({
@@ -30,4 +34,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 // @ts-ignore
 export const routingComponents = [LoginComponent, ListacursosComponent, SemestreComponent, AddsemestreComponent, AddProfesorComponent,
-  AddEstudianteComponent, NotasComponent, NoticiasComponent];
+  AddEstudianteComponent, NotasComponent, NoticiasComponent, AsignacionesComponent, RubrosComponent];
