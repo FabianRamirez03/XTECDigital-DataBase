@@ -26,15 +26,15 @@
     <tr>
       <td><input type="text" id="grupo" placeholder="Grupo"></td>
       <td><select class="form-control" id="periodo" >
-        <option *ngFor="let curso of cursosDisponibles" value="{{curso.codigo}}">{{curso.codigo}}</option>
+        <option *ngFor="let curso of cursosDisponibles | slice: 1" value="{{curso.codigo}}">{{curso.codigo}}</option>
       </select></td>
       <td></td>
       <td></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
-    <tr *ngFor="let curso of cursosSemestre">
-      <td><b>{{curso.grupo}}</b></td>
-      <td>{{curso.curso}}</td>
+    <tr *ngFor="let curso of grupos | slice: 1">
+      <td><b>{{curso.numeroGrupo}}</b></td>
+      <td>{{curso.codigo}}</td>
       <td><button type="button" (click)="profesorDialog()" class="btn btn-sm btn-primary btn-create">Profesores</button></td>
       <td><button type="button" (click)="estudianteDialog()" class="btn btn-sm btn-primary btn-create">Estudiantes</button></td>
       <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>

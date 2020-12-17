@@ -39,7 +39,7 @@
     <tr *ngFor="let semestre of semestres | slice:1">
       <td><b>{{semestre.ano}}</b></td>
       <td>{{semestre.periodo}}</td>
-      <td><button type="button" (click)="ver()" class="btn btn-sm btn-primary btn-create">Ver</button></td>
+      <td><button type="button" (click)="ver(semestre.ano, semestre.periodo)" class="btn btn-sm btn-primary btn-create">Ver</button></td>
     </tr>
   </table>
 </div>

@@ -3,6 +3,8 @@ import {AddEstudianteComponent} from '../add-estudiante/add-estudiante.component
 import {AddProfesorComponent} from '../add-profesor/add-profesor.component';
 import {MatDialog} from '@angular/material/dialog';
 import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-semestre',
@@ -15,7 +17,7 @@ export class SemestreComponent implements OnInit {
   ano: any;
   periodo: any;
   cedulaAdmin: any;
-  constructor(public dialog: MatDialog, public httpService: HttpClient) {
+  constructor(public dialog: MatDialog, public httpService: HttpClient, public messenger: MessengerService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -49,9 +51,11 @@ export class SemestreComponent implements OnInit {
     console.log('eliminado');
   }
 
-  ver(): void{
-    console.log('Ver');
+  ver(ano: string, periodo: string): void {
+    this.messenger.setMessage([ano, periodo]);
+    this.router.navigate(['/', 'Grupos']);
   }
+
 
 
   setSemestres(): void{
