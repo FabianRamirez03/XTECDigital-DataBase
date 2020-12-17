@@ -15,6 +15,7 @@ import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import {MessengerService} from './MessengerService';
+import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
 // @ts-ignore
 import {
   DetailsViewService,
@@ -25,6 +26,9 @@ import {
 import { FilesComponent } from './componentes/files/files.component';
 import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
+import { EvaluarComponent } from './profesor/evaluar/evaluar.component';
+import { ListaEstudiantesComponent } from './profesor/lista-estudiantes/lista-estudiantes.component';
+import { ReporteNotasComponent } from './profesor/reporte-notas/reporte-notas.component';
 import { RubrosComponent } from './profesor/rubros/rubros.component';
 import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
 import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.component';
@@ -45,6 +49,10 @@ import { HeaderProfesorComponent } from './componentes/header-profesor/header-pr
     FilesComponent,
     NotasComponent,
     NoticiasComponent,
+    EvaluarComponent,
+    ListaEstudiantesComponent,
+    ReporteNotasComponent,
+    NoticiasComponent,
     RubrosComponent,
     AsignacionesComponent,
     AddNoticiaComponent,
@@ -57,7 +65,7 @@ import { HeaderProfesorComponent } from './componentes/header-profesor/header-pr
     FormsModule,
     AppRoutingModule,
     FileManagerModule,
-
+    AccordionModule,
     AppRoutingModule,
     MatButtonModule,
     MatDialogModule,
