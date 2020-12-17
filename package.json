@@ -26,6 +26,8 @@
     "@syncfusion/ej2-angular-navigations": "^18.3.53",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "jspdf": "^2.2.0",
+    "jspdf-autotable": "^3.5.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
