@@ -24,7 +24,7 @@ export class SemestreComponent implements OnInit {
   agregar(): void{
     this.ano = (document.getElementById('ano') as HTMLInputElement).value;
     this.periodo = (document.getElementById('periodo') as HTMLInputElement).value;
-    this.cedulaAdmin = '11111';
+    this.cedulaAdmin = '0';
     this.httpService.post('https://localhost:5001/Semestre/crearSemestre',
       {
         // tslint:disable-next-line:radix

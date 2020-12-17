@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
 
 @Component({
   selector: 'app-listacursos',
@@ -15,7 +16,7 @@ export class ListacursosComponent implements OnInit {
   creditos: string;
   habilitado: boolean;
   cedulaAdmin: string;
-  constructor(public httpService: HttpClient ) {
+  constructor(public httpService: HttpClient, public messenger: MessengerService ) {
   }
 
   setCursos(): void{
@@ -37,7 +38,7 @@ export class ListacursosComponent implements OnInit {
     this.carrera = (document.getElementById('carrera') as HTMLInputElement).value;
     this.creditos = (document.getElementById('creditos') as HTMLInputElement).value;
     this.habilitado = true;
-    this.cedulaAdmin = '11111';
+    this.cedulaAdmin = this.messenger.usuario.cedula;
     this.httpService.post('https://localhost:5001/Curso/crearCurso',
       {
         codigo: this.codigo,
