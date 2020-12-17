@@ -49,6 +49,10 @@ export class SemestreComponent implements OnInit {
     console.log('eliminado');
   }
 
+  ver(): void{
+    console.log('Ver');
+  }
+
 
   setSemestres(): void{
     this.httpService.post('https://localhost:5001/Semestre/verSemestres', {}).subscribe(
