@@ -28,6 +28,7 @@ import { NotasComponent } from './estudiante/notas/notas.component';
 import { NoticiasComponent } from './estudiante/noticias/noticias.component';
 import { EvaluarComponent } from './profesor/evaluar/evaluar.component';
 import { ListaEstudiantesComponent } from './profesor/lista-estudiantes/lista-estudiantes.component';
+import { ReporteNotasComponent } from './profesor/reporte-notas/reporte-notas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { ListaEstudiantesComponent } from './profesor/lista-estudiantes/lista-es
     NotasComponent,
     NoticiasComponent,
     EvaluarComponent,
-    ListaEstudiantesComponent
+    ListaEstudiantesComponent,
+    ReporteNotasComponent
   ],
   imports: [
     BrowserModule,
