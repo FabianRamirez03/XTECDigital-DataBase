@@ -27,14 +27,12 @@ export class AddsemestreComponent implements OnInit {
     this.messenger.message.subscribe(value => {this.periodo = value[1]; });
     this.setGruposActivos();
     this.setCursosDisponibles();
+    console.log('ACtualizado');
   }
-  agregar(): void{
-    this.codigo = (document.getElementById('codigo') as HTMLInputElement).value;
-    this.numeroGrupo = (document.getElementById('grupo') as HTMLInputElement).value;
-    this.httpService.post(this.messenger.urlServer + 'Grupo/crearGrupo',
+  agregarCursoSemestre(): void{
+    this.httpService.post(this.messenger.urlServer + 'Curso/agregarCursoSemestre',
       {
         codigoCurso: this.codigo,
-        numeroGrupo: +this.numeroGrupo,
         ano: +this.ano,
         periodo: this.periodo
       }).subscribe(
@@ -43,8 +41,22 @@ export class AddsemestreComponent implements OnInit {
         console.log(resp);
       }
     );
-    this.setGruposActivos();
-
+  }
+  async agregar(): Promise<void> {
+    this.codigo = (document.getElementById('codigo') as HTMLInputElement).value;
+    this.numeroGrupo = (document.getElementById('grupo') as HTMLInputElement).value;
+    await this.agregarCursoSemestre();
+    await this.httpService.post(this.messenger.urlServer + 'Grupo/crearGrupo',
+      {
+        codigoCurso: this.codigo,
+        numeroGrupo: +this.numeroGrupo,
+        ano: +this.ano,
+        periodo: this.periodo
+      }).subscribe(
+      (resp: HttpResponse<any>) => {
+        this.ngOnInit();
+      }
+    );
   }
   eliminar(): void{
     console.log('eliminado');
@@ -83,8 +95,6 @@ export class AddsemestreComponent implements OnInit {
 
   setGruposActivos(): void {
     // tslint:disable-next-line:prefer-const
-    console.log(this.ano);
-    console.log(this.periodo);
     this.httpService.post(this.messenger.urlServer + 'Semestre/verCursosSemestre',
       {
         ano: +this.ano,
