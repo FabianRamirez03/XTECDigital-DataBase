@@ -25,12 +25,12 @@ export class LoginComponent implements OnInit {
           if (resp[0][0].rol === 'estudiante'){
             this.messenger.usuario = resp[1][0];
             console.log(this.messenger.usuario);
-            alert('Es estudiante');
+            this.router.navigate(['/', 'PantallaCursos']);
           }
           else if (resp[0][0].rol === 'profesor'){
             this.messenger.usuario = resp[1][0];
             console.log(this.messenger.usuario);
-            alert('Es profe');
+            this.router.navigate(['/', 'MisCursos']);
           }
           else {
             this.messenger.usuario = resp[1][0];

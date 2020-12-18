@@ -35,7 +35,7 @@ const routes: Routes = [
   {path: 'Asignaciones', component: AsignacionesComponent},
   {path: 'Rubros', component: RubrosComponent},
   {path: 'AddNoticia', component: AddNoticiaComponent},
-  {path: 'PantallaCursos', component: PantallaCursosComponent},
+  {path: 'PantallaCursos', component: PantallaCursosComponent}, // Listo
   {path: 'MisCursos', component: ListaCursosComponent}
 ];
 

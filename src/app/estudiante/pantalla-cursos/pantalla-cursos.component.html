@@ -15,7 +15,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let curso of cursos">
+              <tr *ngFor="let curso of misGrupos | slice: 1">
                 <td>{{curso.nombre + ' Grupo: ' + curso.grupo}}</td>
                 <td> <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark">Ir</button></td>
               </tr>
