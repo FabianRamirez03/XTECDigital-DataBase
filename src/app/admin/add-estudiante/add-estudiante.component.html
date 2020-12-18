@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+  <table style="width:75%;" align="center">
+
+    <tr>
+      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>Estudiantes</h3></th>
+    </tr>
+
+    <tr style="background-color:#32A9EE;color:white;">
+      <th>Carnet</th>
+      <th>Nombre</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><select class="form-control" id="periodo" >
+        <option *ngFor="let estu of estudiantes" value="{{estu.carnet}}">{{estu.carnet}}</option>
+      </select></td>
+      <td></td>
+      <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
+    </tr>
+    <tr *ngFor="let estu of estudianteSemestre">
+      <td><b>{{estu.carnet}}</b></td>
+      <td>{{estu.nombre}}</td>
+      <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>
+    </tr>
+  </table>

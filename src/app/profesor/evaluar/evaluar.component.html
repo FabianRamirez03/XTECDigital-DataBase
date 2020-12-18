@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="login-dark">
+  <div align="center">
+    <caption><h2><ins><i></i></ins></h2></caption>
+  </div>
+<div class="container-lg">
+<ejs-accordion expandMode='Single'>
+  <e-accordionitems>
+    <ng-container *ngFor="let rubro of rubros; let i = index">
+        <e-accordionitem expanded='true' header='{{rubro}}'>
+          <ng-template #content *ngFor="let eval of evaluaciones">
+            <div id='athletics'>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <div><span class='e-acrdn-icons e-content-icon marathon'></span> {{eval}}</div>
+                  </div>
+                  <div class="col-sm">
+                    <div>Aqui va el nombre del archivo a descargar </div>
+                    <button class="btn"><i class="fa fa-download"></i>Descargar</button>
+                  </div>
+                  <div class="col-sm">
+                    <div>Subir archivo de retroalimentación</div>
+                    <input type="file" id="photo"  #image (change)="setByteArray(image.files)" name="file" required="required">
+                  </div>
+                  <div class="col-sm">
+                    <div>Calificación:</div>
+                    <input type="number" required="required">
+                    <button class="btn"><i class="fa fa-bullhorn"></i>Publicar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </e-accordionitem>
+    </ng-container>
+  </e-accordionitems>
+</ejs-accordion>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+<!------ Include the above in your HEAD tag ---------->
+<app-header-admin></app-header-admin>
+<div class="login-dark">
+  <div align="center">
+    <caption><h2><ins><i></i></ins></h2></caption>
+  </div>
+
+  <table style="width:75%;" align="center">
+
+    <tr>
+      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>Grupos del semestre</h3></th>
+    </tr>
+
+    <tr style="background-color:#32A9EE;color:white;">
+      <th>Grupo</th>
+      <th>Curso</th>
+      <th>Profesor</th>
+      <th>Estudiantes</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><input type="text" id="grupo" placeholder="Grupo"></td>
+      <td><select class="form-control" id="codigo" >
+        <option *ngFor="let curso of cursosDisponibles | slice: 1" value="{{curso.codigo}}">{{curso.codigo}}</option>
+      </select></td>
+      <td></td>
+      <td></td>
+      <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
+    </tr>
+    <tr *ngFor="let curso of grupos | slice: 1">
+      <td><b>{{curso.numeroGrupo}}</b></td>
+      <td>{{curso.codigo}}</td>
+      <td><button type="button" (click)="profesorDialog()" class="btn btn-sm btn-primary btn-create">Profesores</button></td>
+      <td><button type="button" (click)="estudianteDialog()" class="btn btn-sm btn-primary btn-create">Estudiantes</button></td>
+      <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>
+    </tr>
+  </table>
+</div>

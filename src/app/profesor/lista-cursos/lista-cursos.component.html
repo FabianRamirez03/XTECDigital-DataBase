@@ -1,0 +1,30 @@
+<app-header-profesor></app-header-profesor>
+<body>
+<div class="grid-container">
+  <div class="left">
+    <div class="container FixedHeightContainer outer totalWidth" id="categorias">
+      <div class="row Content scrollbar-light-blue inner ">
+        <div id="categoriasData" class="totalWidth">
+          <h1>Curso:</h1>
+          <div class="col-md-12 Relative totalWidth">
+            <table class="table table-striped text-white table-hover totalWidth" id="estudiantes" #students>
+              <thead>
+              <tr>
+                <th>Nombre</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let curso of misGrupos | slice: 1">
+                <td>{{curso.nombre + ' Grupo: ' + curso.grupo}}</td>
+                <td> <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark">Ir</button></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
