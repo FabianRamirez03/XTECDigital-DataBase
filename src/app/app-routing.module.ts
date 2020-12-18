@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'ListaCursos', component: ListacursosComponent},  // listo
   {path: 'Files', component: FilesComponent},  // Wajo
   {path: 'Semestre', component: SemestreComponent},  // listo
-  {path: 'Grupos', component: AddsemestreComponent},
+  {path: 'Grupos', component: AddsemestreComponent}, // Listo
   {path: 'AddProfesor', component: AddProfesorComponent},
   {path: 'AddEstudiante', component: AddEstudianteComponent},
   {path: 'NotasEstudiante', component: NotasComponent},

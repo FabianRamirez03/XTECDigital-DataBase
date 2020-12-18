@@ -103,7 +103,6 @@ export class AddsemestreComponent implements OnInit {
       (resp: HttpResponse<any>) =>
       {
         this.grupos = resp;
-        console.log(resp);
       }
     );
   }
