@@ -63,7 +63,7 @@ export class SemestreComponent implements OnInit {
       (resp: HttpResponse<any>) =>
       {
         this.semestres = resp;
-        console.log(resp);
+
       }
     );
   }

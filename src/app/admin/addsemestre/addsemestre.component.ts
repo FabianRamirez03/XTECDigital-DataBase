@@ -15,6 +15,8 @@ export class AddsemestreComponent implements OnInit {
   cursos: any;
   grupos: any;
   periodo: any;
+  codigo: any;
+  numeroGrupo: any;
   ano: any;
   constructor(public dialog: MatDialog, public httpService: HttpClient, public messenger: MessengerService ) {
     // tslint:disable-next-line:prefer-const
@@ -23,13 +25,26 @@ export class AddsemestreComponent implements OnInit {
   ngOnInit(): void {
     this.messenger.message.subscribe(value => {this.ano = value[0]; });
     this.messenger.message.subscribe(value => {this.periodo = value[1]; });
-    console.log(this.ano);
-    console.log(this.periodo);
     this.setGruposActivos();
     this.setCursosDisponibles();
   }
   agregar(): void{
-    console.log('agregado');
+    this.codigo = (document.getElementById('codigo') as HTMLInputElement).value;
+    this.numeroGrupo = (document.getElementById('grupo') as HTMLInputElement).value;
+    this.httpService.post(this.messenger.urlServer + 'Grupo/crearGrupo',
+      {
+        codigoCurso: this.codigo,
+        numeroGrupo: +this.numeroGrupo,
+        ano: +this.ano,
+        periodo: this.periodo
+      }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        console.log(resp);
+      }
+    );
+    this.setGruposActivos();
+
   }
   eliminar(): void{
     console.log('eliminado');
@@ -68,20 +83,23 @@ export class AddsemestreComponent implements OnInit {
 
   setGruposActivos(): void {
     // tslint:disable-next-line:prefer-const
-    this.httpService.post('https://localhost:5001/Semestre/verCursosSemestre',
+    console.log(this.ano);
+    console.log(this.periodo);
+    this.httpService.post(this.messenger.urlServer + 'Semestre/verCursosSemestre',
       {
-        ano: 2021,
-        periodo: '1'
+        ano: +this.ano,
+        periodo: this.periodo
       }).subscribe(
       (resp: HttpResponse<any>) =>
       {
         this.grupos = resp;
+        console.log(resp);
       }
     );
   }
   setCursosDisponibles(): void {
     // tslint:disable-next-line:prefer-const
-    this.httpService.post('https://localhost:5001/Curso/verCursosDisponibles', {}).subscribe(
+    this.httpService.post(this.messenger.urlServer + 'Curso/verCursosDisponibles', {}).subscribe(
       (resp: HttpResponse<any>) =>
       {
         this.cursosDisponibles = resp;

@@ -20,7 +20,7 @@ export class ListacursosComponent implements OnInit {
   }
 
   setCursos(): void{
-    this.httpService.post('https://localhost:5001/Curso/verCursos', {}).subscribe(
+    this.httpService.post(this.messenger.urlServer + 'Curso/verCursos', {}).subscribe(
       (resp: HttpResponse<any>) =>
       {
         this.cursos = resp;
@@ -39,7 +39,7 @@ export class ListacursosComponent implements OnInit {
     this.creditos = (document.getElementById('creditos') as HTMLInputElement).value;
     this.habilitado = true;
     this.cedulaAdmin = this.messenger.usuario.cedula;
-    this.httpService.post('https://localhost:5001/Curso/crearCurso',
+    this.httpService.post(this.messenger.urlServer + 'Curso/crearCurso',
       {
         codigo: this.codigo,
         nombre: this.nombre,
@@ -61,7 +61,7 @@ export class ListacursosComponent implements OnInit {
     );
   }
   eliminar(codigoCurso): void{
-    this.httpService.post('https://localhost:5001/Curso/habilitar_deshabilitarCurso', {codigo: codigoCurso}).subscribe(
+    this.httpService.post(this.messenger.urlServer + 'Curso/habilitar_deshabilitarCurso', {codigo: codigoCurso}).subscribe(
       (resp: HttpResponse<any>) =>
       {
         console.log('Curso deshabilitado');

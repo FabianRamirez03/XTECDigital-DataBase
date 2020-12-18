@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   login(): void{
     this.user = (document.getElementById('user') as HTMLInputElement).value;
     this.password = (document.getElementById('password') as HTMLInputElement).value;
-    this.httpService.post('https://localhost:5001/Usuario/validarUser',
+    this.httpService.post(this.messenger.urlServer + 'Usuario/validarUser',
       { carnet: this.user, password: this.password}).subscribe(
       (resp: HttpResponse<object>) =>
       {
