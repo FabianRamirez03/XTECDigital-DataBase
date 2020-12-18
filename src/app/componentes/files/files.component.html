@@ -1,4 +1,11 @@
-<app-header-profesor></app-header-profesor>
+<div *ngIf="messenger.tipoUsuario == 'profesor'">
+  <app-header-profesor></app-header-profesor>
+</div>
+
+<div *ngIf="messenger.tipoUsuario == 'estudiante'">
+  <app-header-estudiante></app-header-estudiante>
+</div>
+
 <div class="sample-container">
 <ejs-filemanager #filemanager id='overview' [ajaxSettings]='ajaxSettings'
                  (beforeImageLoad)="beforeImage($event)" (beforeSend)="beforeSend($event)"

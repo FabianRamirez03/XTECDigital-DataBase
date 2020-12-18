@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
   {path: 'Login', component: LoginComponent},  // listo
   {path: 'ListaCursos', component: ListacursosComponent},  // listo
-  {path: 'Files', component: FilesComponent},  // Wajo
+  {path: 'Files', component: FilesComponent},
   {path: 'Semestre', component: SemestreComponent},  // listo
   {path: 'Grupos', component: AddsemestreComponent}, // Listo
   {path: 'AddProfesor', component: AddProfesorComponent},
@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'Rubros', component: RubrosComponent},
   {path: 'AddNoticia', component: AddNoticiaComponent},
   {path: 'PantallaCursos', component: PantallaCursosComponent}, // Listo
-  {path: 'MisCursos', component: ListaCursosComponent}
+  {path: 'MisCursos', component: ListaCursosComponent} // asd
 ];
 
 @NgModule({

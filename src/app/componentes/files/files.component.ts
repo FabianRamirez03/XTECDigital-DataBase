@@ -5,6 +5,7 @@ import {
   NavigationPaneService,
   ToolbarService
 } from '@syncfusion/ej2-angular-filemanager';
+import {MessengerService} from '../../MessengerService';
 
 @Component({
   selector: 'app-files',
@@ -24,7 +25,7 @@ export class FilesComponent implements OnInit {
   public curso: string;
   public isAdmin: boolean;
   public grupo: number;
-  constructor() {this.curso = 'CE3101'; this.grupo = 1; }
+  constructor(public messenger: MessengerService) {this.curso = 'CE3101'; this.grupo = 1;  }
 
   public ngOnInit(): void {
     this.ajaxSettings = {

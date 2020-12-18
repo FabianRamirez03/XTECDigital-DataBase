@@ -24,17 +24,17 @@ export class LoginComponent implements OnInit {
         if (resp[0][0].error === 'null'){
           if (resp[0][0].rol === 'estudiante'){
             this.messenger.usuario = resp[1][0];
-            console.log(this.messenger.usuario);
+            this.messenger.tipoUsuario = resp[0][0].rol;
             this.router.navigate(['/', 'PantallaCursos']);
           }
           else if (resp[0][0].rol === 'profesor'){
             this.messenger.usuario = resp[1][0];
-            console.log(this.messenger.usuario);
+            this.messenger.tipoUsuario = resp[0][0].rol;
             this.router.navigate(['/', 'MisCursos']);
           }
           else {
             this.messenger.usuario = resp[1][0];
-            console.log(this.messenger.usuario);
+            this.messenger.tipoUsuario = resp[0][0].rol;
             this.router.navigate(['/', 'ListaCursos']);
           }
         }
