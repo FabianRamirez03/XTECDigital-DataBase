@@ -35,6 +35,8 @@ import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.componen
 import { HeaderAdminComponent } from './componentes/header-admin/header-admin.component';
 import { HeaderEstudianteComponent } from './componentes/header-estudiante/header-estudiante.component';
 import { HeaderProfesorComponent } from './componentes/header-profesor/header-profesor.component';
+import { PantallaCursosComponent } from './estudiante/pantalla-cursos/pantalla-cursos.component';
+import { ListaCursosComponent } from './profesor/lista-cursos/lista-cursos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,9 @@ import { HeaderProfesorComponent } from './componentes/header-profesor/header-pr
     AddNoticiaComponent,
     HeaderAdminComponent,
     HeaderEstudianteComponent,
-    HeaderProfesorComponent
+    HeaderProfesorComponent,
+    PantallaCursosComponent,
+    ListaCursosComponent
   ],
   imports: [
     BrowserModule,
