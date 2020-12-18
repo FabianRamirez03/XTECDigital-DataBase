@@ -7,6 +7,14 @@ import { AddsemestreComponent } from './admin/addsemestre/addsemestre.component'
 import { AddProfesorComponent } from './admin/add-profesor/add-profesor.component';
 import { AddEstudianteComponent } from './admin/add-estudiante/add-estudiante.component';
 import {FilesComponent} from './componentes/files/files.component';
+import { NotasComponent } from './estudiante/notas/notas.component';
+import { NoticiasComponent } from './estudiante/noticias/noticias.component';
+import {EvaluarComponent} from './profesor/evaluar/evaluar.component';
+import {ListaEstudiantesComponent} from './profesor/lista-estudiantes/lista-estudiantes.component';
+import {ReporteNotasComponent} from './profesor/reporte-notas/reporte-notas.component';
+import { RubrosComponent } from './profesor/rubros/rubros.component';
+import { AsignacionesComponent } from './profesor/asignaciones/asignaciones.component';
+import { AddNoticiaComponent } from './profesor/add-noticia/add-noticia.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
@@ -17,6 +25,14 @@ const routes: Routes = [
   {path: 'Grupos', component: AddsemestreComponent},
   {path: 'AddProfesor', component: AddProfesorComponent},
   {path: 'AddEstudiante', component: AddEstudianteComponent},
+  {path: 'NotasEstudiante', component: NotasComponent},
+  {path: 'Noticias', component: NoticiasComponent},
+  {path: 'Evaluar', component: EvaluarComponent},
+  {path: 'ListaEstudiantes', component: ListaEstudiantesComponent},
+  {path: 'ReporteNotas', component: ReporteNotasComponent},
+  {path: 'Asignaciones', component: AsignacionesComponent},
+  {path: 'Rubros', component: RubrosComponent},
+  {path: 'AddNoticia', component: AddNoticiaComponent},
 ];
 
 @NgModule({
@@ -26,4 +42,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 // @ts-ignore
 export const routingComponents = [LoginComponent, ListacursosComponent, SemestreComponent, AddsemestreComponent, AddProfesorComponent,
-  AddEstudianteComponent];
+  AddEstudianteComponent, NotasComponent, NoticiasComponent, ListaEstudiantesComponent, EvaluarComponent,
+  ReporteNotasComponent, AsignacionesComponent, RubrosComponent, AddNoticiaComponent];

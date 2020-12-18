@@ -1,0 +1,48 @@
+<div align="center">
+  <caption><h2><ins><i></i></ins></h2></caption>
+</div>
+<body>
+<h1>Notas de {{nombreCurso}} Grupo {{grupo}}</h1>
+<div class="grid-container">
+  <div class="left">
+    <div class="sticky">
+      <button class="btn-primary btn" (click)="openPDFCategorias()" style="margin-left: 20px">Exportar como PDF</button>
+    </div>
+    <div class="container FixedHeightContainer outer totalWidth" id="categorias">
+      <div class="row Content scrollbar-light-blue inner ">
+        <div id="categoriasData" class="totalWidth">
+          <h1>Estudiantes:</h1>
+          <div class="col-md-12 Relative totalWidth">
+            <table class="table table-striped text-white table-hover totalWidth" id="estudiantes" #students>
+              <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Carnet</th>
+                <th>Rubro</th>
+                <th>Evaluacion</th>
+                <th>Nota</th>
+                <th>Porcentaje Obtenido</th>
+                <th>Valor</th>
+                <th>Nota Final</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let estudiante of estudiantes">
+                <td>{{estudiante.primernombre + ' ' + estudiante.apellidos}}</td>
+                <td>{{estudiante.carnet}}</td>
+                <td>{{estudiante.rubro}}</td>
+                <td>{{estudiante.nombreEvaluacion}}</td>
+                <td>{{estudiante.notaObtenida}}</td>
+                <td>{{estudiante.porcentajeObtenido}}</td>
+                <td>{{estudiante.porcentajeEvaluacion}}</td>
+                <td>{{estudiante.notaFinal}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

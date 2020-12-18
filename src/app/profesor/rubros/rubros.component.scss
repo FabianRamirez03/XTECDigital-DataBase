@@ -1,0 +1,41 @@
+
+
+table{
+  border:1px solid black;
+  border-collapse:collapse ;
+  padding:0px;
+}
+
+th{
+  padding:10px;
+  border:1px solid black;
+
+
+}
+
+td{
+  padding:10px;
+  border:1px solid black;
+  text-align:left;
+}
+
+tr:nth-child(even)
+{
+  background-color:white;
+}
+
+tr:nth-child(odd)
+{
+  background-color:#eee;
+}
+
+.login-dark {
+  position: relative;
+  height: 1200px;
+  background:#475d62 url(https://www.tec.ac.cr/hoyeneltec/sites/default/files/styles/colorbox/public/media/img/main/aerea_tec.jpg);
+  background-size: cover;
+
+}
+.ui-datepicker-calendar {
+  display: none;
+}
