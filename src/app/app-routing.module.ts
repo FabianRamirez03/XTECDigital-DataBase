@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'Rubros', component: RubrosComponent},
   {path: 'AddNoticia', component: AddNoticiaComponent},
   {path: 'PantallaCursos', component: PantallaCursosComponent}, // Listo
-  {path: 'MisCursos', component: ListaCursosComponent} // asd
+  {path: 'MisCursos', component: ListaCursosComponent} // Listo
 ];
 
 @NgModule({

@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/', 'PantallaCursos']);
           }
           else if (resp[0][0].rol === 'profesor'){
+            console.log(resp[1][0]);
             this.messenger.usuario = resp[1][0];
             this.messenger.tipoUsuario = resp[0][0].rol;
             this.router.navigate(['/', 'MisCursos']);
