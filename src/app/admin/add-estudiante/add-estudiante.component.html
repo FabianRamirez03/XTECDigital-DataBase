@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td><select class="form-control" id="periodo" >
-        <option *ngFor="let estu of estudiantes" value="{{estu.carnet}}">{{estu.carnet}}</option>
+        <option *ngFor="let estu of estudiantes | slice: 1" value="{{estu.carnet}}">{{estu.carnet}}</option>
       </select></td>
       <td></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>

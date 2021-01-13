@@ -22,17 +22,17 @@ export class SemestreComponent implements OnInit {
 
   ngOnInit(): void {
     this.setSemestres();
+    console.log(this.messenger.usuario);
   }
   agregar(): void{
     this.ano = (document.getElementById('ano') as HTMLInputElement).value;
     this.periodo = (document.getElementById('periodo') as HTMLInputElement).value;
-    this.cedulaAdmin = '0';
-    this.httpService.post('https://localhost:5001/Semestre/crearSemestre',
+    this.cedulaAdmin = this.messenger.usuario.cedulaAdmin;
+    this.httpService.post(this.messenger.urlServer + 'Semestre/crearSemestre',
       {
-        // tslint:disable-next-line:radix
-        ano: parseInt(this.ano),
+        ano: +this.ano,
         periodo: this.periodo,
-        cedulaAdmin: this.cedulaAdmin
+        cedulaAdmin: this.messenger.usuario.cedula
       }).subscribe(
       (resp: HttpResponse<any>) =>
       {
@@ -59,11 +59,10 @@ export class SemestreComponent implements OnInit {
 
 
   setSemestres(): void{
-    this.httpService.post('https://localhost:5001/Semestre/verSemestres', {}).subscribe(
+    this.httpService.post(this.messenger.urlServer + 'Semestre/verSemestres', {}).subscribe(
       (resp: HttpResponse<any>) =>
       {
         this.semestres = resp;
-
       }
     );
   }

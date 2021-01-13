@@ -20,11 +20,11 @@ import {ListaCursosComponent} from './profesor/lista-cursos/lista-cursos.compone
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
-  {path: 'Login', component: LoginComponent},  // listo
-  {path: 'ListaCursos', component: ListacursosComponent},  // listo
-  {path: 'Files', component: FilesComponent},
-  {path: 'Semestre', component: SemestreComponent},  // listo
-  {path: 'Grupos', component: AddsemestreComponent}, // Listo
+  {path: 'Login', component: LoginComponent},  // listo x2
+  {path: 'ListaCursos', component: ListacursosComponent},  // listo x2
+  {path: 'Files', component: FilesComponent}, // Wajo?
+  {path: 'Semestre', component: SemestreComponent},  // listo x2
+  {path: 'Grupos', component: AddsemestreComponent}, // Listo x2
   {path: 'AddProfesor', component: AddProfesorComponent},
   {path: 'AddEstudiante', component: AddEstudianteComponent},
   {path: 'NotasEstudiante', component: NotasComponent},
@@ -35,8 +35,8 @@ const routes: Routes = [
   {path: 'Asignaciones', component: AsignacionesComponent},
   {path: 'Rubros', component: RubrosComponent},
   {path: 'AddNoticia', component: AddNoticiaComponent},
-  {path: 'PantallaCursos', component: PantallaCursosComponent}, // Listo
-  {path: 'MisCursos', component: ListaCursosComponent} // Listo
+  {path: 'PantallaCursos', component: PantallaCursosComponent}, // Listo x2
+  {path: 'MisCursos', component: ListaCursosComponent} // Listo x2
 ];
 
 @NgModule({

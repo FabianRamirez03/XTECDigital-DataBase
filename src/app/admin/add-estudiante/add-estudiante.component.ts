@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
 
 @Component({
   selector: 'app-add-estudiante',
@@ -8,10 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddEstudianteComponent implements OnInit {
   estudiantes: any;
   estudianteSemestre: any;
-  constructor() {
-    this.estudiantes = [
-      {carnet: '456'
-      }, {carnet: '987'}];
+  constructor(public httpService: HttpClient, public messenger: MessengerService) {
     this.estudianteSemestre = [
       {carnet: '123',
         nombre: 'mariana'
@@ -20,6 +19,7 @@ export class AddEstudianteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setEstudiantes();
   }
 
   agregar(): void{
@@ -27,6 +27,16 @@ export class AddEstudianteComponent implements OnInit {
   }
   eliminar(): void{
     console.log('eliminado');
+  }
+
+  setEstudiantes(): void{
+    this.httpService.post(this.messenger.urlServer + 'Usuario/getNombreEstudiantes', {}).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.estudiantes = resp;
+        console.log(resp);
+      }
+    );
   }
 
 }
