@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <td><select class="form-control" id="periodo" >
-        <option *ngFor="let profesor of profesores" value="{{profesor.nombre}}">{{profesor.nombre}}</option>
+        <option *ngFor="let profesor of profesores | slice: 1" value="{{profesor.nombre}}">{{profesor.nombre}}</option>
       </select></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
