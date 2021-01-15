@@ -9,7 +9,7 @@
   <table style="width:75%;" align="center">
 
     <tr>
-      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>TEST RAKINGS</h3></th>
+      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>Profesores: {{data.codigo}}</h3></th>
     </tr>
 
     <tr style="background-color:#32A9EE;color:white;">
@@ -17,8 +17,8 @@
       <th></th>
     </tr>
     <tr>
-      <td><select class="form-control" id="periodo" >
-        <option *ngFor="let profesor of profesores | slice: 1" value="{{profesor.nombre}}">{{profesor.nombre}}</option>
+      <td><select class="form-control" id="profesor" >
+        <option *ngFor="let profesor of profesores | slice: 1" value="{{profesor.cedula}}">{{profesor.cedula}}</option>
       </select></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>

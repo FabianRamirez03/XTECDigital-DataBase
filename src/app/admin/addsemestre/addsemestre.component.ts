@@ -62,8 +62,8 @@ export class AddsemestreComponent implements OnInit {
     console.log('eliminado');
   }
 
-  estudianteDialog(): void {
-    const param = [null];
+  estudianteDialog(codigoCurso: string, numeroGrupo): void {
+    const param = {codigo: codigoCurso, numero: +numeroGrupo};
     const dialogRef = this.dialog.open(AddEstudianteComponent, {
       width: '70%',
       height: '70%',
@@ -77,8 +77,8 @@ export class AddsemestreComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {console.log(res); });
   }
-  profesorDialog(): void {
-    const param = [null];
+  profesorDialog(codigoCurso: string, numeroGrupo): void {
+    const param = {codigo: codigoCurso, numero: +numeroGrupo};
     const dialogRef = this.dialog.open(AddProfesorComponent, {
       width: '70%',
       height: '70%',

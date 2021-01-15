@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {MessengerService} from '../../MessengerService';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -13,7 +13,9 @@ import {MessengerService} from '../../MessengerService';
 export class AddProfesorComponent implements OnInit {
   profesoreSemestre: any;
   profesores: any;
-  constructor(public httpService: HttpClient, public messenger: MessengerService) {
+  cedulaProfesor: any;
+  // tslint:disable-next-line:max-line-length
+  constructor(public httpService: HttpClient, public messenger: MessengerService,  @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero}) {
     this.profesoreSemestre = [
       {nombre: 'Milton'
       }, {nombre: 'Montero'}];
@@ -22,7 +24,18 @@ export class AddProfesorComponent implements OnInit {
     this.setProfesores();
   }
   agregar(): void{
-    console.log('agregado');
+    this.cedulaProfesor = (document.getElementById('profesor') as HTMLInputElement).value;
+    this.httpService.post(this.messenger.urlServer + 'Usuario/asignarProfesorGrupo',
+      {
+        cedulaProfesor: this.cedulaProfesor,
+        codigoCurso: this.data.codigo,
+        numeroGrupo: this.data.numero
+      }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        console.log(resp);
+      }
+    );
   }
   eliminar(): void{
     console.log('eliminado');

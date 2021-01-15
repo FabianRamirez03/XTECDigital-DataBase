@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {MessengerService} from '../../MessengerService';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-estudiante',
@@ -9,8 +10,11 @@ import {MessengerService} from '../../MessengerService';
 })
 export class AddEstudianteComponent implements OnInit {
   estudiantes: any;
+  carnetEstudiante: any;
+
   estudianteSemestre: any;
-  constructor(public httpService: HttpClient, public messenger: MessengerService) {
+  // tslint:disable-next-line:max-line-length
+  constructor(public httpService: HttpClient, public messenger: MessengerService, @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero}) {
     this.estudianteSemestre = [
       {carnet: '123',
         nombre: 'mariana'
@@ -20,16 +24,38 @@ export class AddEstudianteComponent implements OnInit {
 
   ngOnInit(): void {
     this.setEstudiantes();
+    console.log(this.data);
   }
 
   agregar(): void{
-    console.log('agregado');
+    this.carnetEstudiante = (document.getElementById('estudiante') as HTMLInputElement).value;
+    this.httpService.post(this.messenger.urlServer + 'Usuario/agregarEstudianteGrupo',
+      {
+        carnet: this.carnetEstudiante,
+        codigoCurso: this.data.codigo,
+        numeroGrupo: this.data.numero
+      }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        console.log(resp);
+      }
+    );
   }
   eliminar(): void{
     console.log('eliminado');
   }
 
   setEstudiantes(): void{
+    this.httpService.post(this.messenger.urlServer + 'Usuario/getNombreEstudiantes', {}).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.estudiantes = resp;
+        console.log(resp);
+      }
+    );
+  }
+
+  setEstudiantesInscritos(): void{
     this.httpService.post(this.messenger.urlServer + 'Usuario/getNombreEstudiantes', {}).subscribe(
       (resp: HttpResponse<any>) =>
       {

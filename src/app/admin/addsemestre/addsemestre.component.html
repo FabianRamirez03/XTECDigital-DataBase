@@ -35,8 +35,8 @@
     <tr *ngFor="let curso of grupos | slice: 1">
       <td><b>{{curso.numeroGrupo}}</b></td>
       <td>{{curso.codigo}}</td>
-      <td><button type="button" (click)="profesorDialog()" class="btn btn-sm btn-primary btn-create">Profesores</button></td>
-      <td><button type="button" (click)="estudianteDialog()" class="btn btn-sm btn-primary btn-create">Estudiantes</button></td>
+      <td><button type="button" (click)="profesorDialog(curso.codigo,curso.numeroGrupo)" class="btn btn-sm btn-primary btn-create">Profesores</button></td>
+      <td><button type="button" (click)="estudianteDialog(curso.codigo,curso.numeroGrupo)" class="btn btn-sm btn-primary btn-create">Estudiantes</button></td>
       <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>
     </tr>
   </table>

@@ -9,7 +9,7 @@
   <table style="width:75%;" align="center">
 
     <tr>
-      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>Estudiantes</h3></th>
+      <th colspan="4" style="background-color:#5E1D55;color:white;" width="100%"><h3>Estudiantes: {{data.codigo}}</h3></th>
     </tr>
 
     <tr style="background-color:#32A9EE;color:white;">
@@ -18,7 +18,7 @@
       <th></th>
     </tr>
     <tr>
-      <td><select class="form-control" id="periodo" >
+      <td><select class="form-control" id="estudiante" >
         <option *ngFor="let estu of estudiantes | slice: 1" value="{{estu.carnet}}">{{estu.carnet}}</option>
       </select></td>
       <td></td>
