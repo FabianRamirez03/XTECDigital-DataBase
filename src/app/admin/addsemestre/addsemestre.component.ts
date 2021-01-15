@@ -27,7 +27,6 @@ export class AddsemestreComponent implements OnInit {
     this.messenger.message.subscribe(value => {this.periodo = value[1]; });
     this.setGruposActivos();
     this.setCursosDisponibles();
-    console.log('ACtualizado');
   }
   agregarCursoSemestre(): void{
     this.httpService.post(this.messenger.urlServer + 'Curso/agregarCursoSemestre',
@@ -63,7 +62,7 @@ export class AddsemestreComponent implements OnInit {
   }
 
   estudianteDialog(codigoCurso: string, numeroGrupo): void {
-    const param = {codigo: codigoCurso, numero: +numeroGrupo};
+    const param = {codigo: codigoCurso, numero: +numeroGrupo, ano: this.ano, periodo: this.periodo};
     const dialogRef = this.dialog.open(AddEstudianteComponent, {
       width: '70%',
       height: '70%',
@@ -78,7 +77,7 @@ export class AddsemestreComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {console.log(res); });
   }
   profesorDialog(codigoCurso: string, numeroGrupo): void {
-    const param = {codigo: codigoCurso, numero: +numeroGrupo};
+    const param = {codigo: codigoCurso, numero: +numeroGrupo, ano: this.ano, periodo: this.periodo};
     const dialogRef = this.dialog.open(AddProfesorComponent, {
       width: '70%',
       height: '70%',

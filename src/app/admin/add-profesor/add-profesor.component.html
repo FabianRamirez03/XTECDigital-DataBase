@@ -22,8 +22,8 @@
       </select></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
-    <tr *ngFor="let profesor of profesoreSemestre">
-      <td><b>{{profesor.codigo}}</b></td>
+    <tr *ngFor="let profesor of profesoresCursos | slice: 1">
+      <td><b>{{profesor.cedula}}</b></td>
       <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>
     </tr>
   </table>

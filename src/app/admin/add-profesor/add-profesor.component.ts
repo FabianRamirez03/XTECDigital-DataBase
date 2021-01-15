@@ -13,15 +13,20 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class AddProfesorComponent implements OnInit {
   profesoreSemestre: any;
   profesores: any;
+  profesoresCursos: any;
   cedulaProfesor: any;
   // tslint:disable-next-line:max-line-length
-  constructor(public httpService: HttpClient, public messenger: MessengerService,  @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero}) {
-    this.profesoreSemestre = [
-      {nombre: 'Milton'
-      }, {nombre: 'Montero'}];
+  constructor(public httpService: HttpClient, public messenger: MessengerService,  @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero, ano: string, periodo: string}) {
   }
   ngOnInit(): void {
     this.setProfesores();
+    this.setProfesoresCurso();
+    console.log({
+      ano: this.data.ano,
+      periodo: this.data.periodo,
+      grupo: this.data.numero,
+      codigoCurso: this.data.codigo
+    });
   }
   agregar(): void{
     this.cedulaProfesor = (document.getElementById('profesor') as HTMLInputElement).value;
@@ -49,4 +54,20 @@ export class AddProfesorComponent implements OnInit {
       }
     );
   }
+
+  setProfesoresCurso(): void{
+    this.httpService.post(this.messenger.urlServer + 'Grupo/verProfesorSemestre',
+      {
+        ano: +this.data.ano,
+        periodo: this.data.periodo,
+        grupo: this.data.numero,
+        codigoCurso: this.data.codigo
+      }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.profesoresCursos = resp;
+      }
+    );
+  }
+
 }

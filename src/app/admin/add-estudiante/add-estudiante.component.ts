@@ -14,7 +14,7 @@ export class AddEstudianteComponent implements OnInit {
 
   estudianteSemestre: any;
   // tslint:disable-next-line:max-line-length
-  constructor(public httpService: HttpClient, public messenger: MessengerService, @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero}) {
+  constructor(public httpService: HttpClient, public messenger: MessengerService, @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero, ano: string, periodo: string}) {
     this.estudianteSemestre = [
       {carnet: '123',
         nombre: 'mariana'
