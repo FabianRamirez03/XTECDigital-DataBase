@@ -67,4 +67,12 @@ export class SemestreComponent implements OnInit {
     );
   }
 
+  cargarExcel(): void {
+    this.httpService.post(this.messenger.urlServer + 'Semestre/crearSemestreExcel', {}).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+      }
+    );
+  }
+
 }
