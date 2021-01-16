@@ -34,7 +34,9 @@ export class AddProfesorComponent implements OnInit {
       {
         cedulaProfesor: this.cedulaProfesor,
         codigoCurso: this.data.codigo,
-        numeroGrupo: this.data.numero
+        numeroGrupo: this.data.numero,
+        ano: +this.data.ano,
+        periodo: this.data.periodo
       }).subscribe(
       (resp: HttpResponse<any>) =>
       {

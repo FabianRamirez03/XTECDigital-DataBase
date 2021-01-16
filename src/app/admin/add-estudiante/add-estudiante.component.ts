@@ -29,7 +29,12 @@ export class AddEstudianteComponent implements OnInit {
 
   agregar(): void{
     this.carnetEstudiante = (document.getElementById('estudiante') as HTMLInputElement).value;
-    this.httpService.post(this.messenger.urlServer + 'Usuario/agregarEstudianteGrupo',
+    console.log({
+      carnet: this.carnetEstudiante,
+      codigoCurso: this.data.codigo,
+      numeroGrupo: this.data.numero
+    });
+    this.httpService.post(this.messenger.urlServer + 'Usuario/agregarEstudiantesGrupo',
       {
         carnet: this.carnetEstudiante,
         codigoCurso: this.data.codigo,
@@ -56,11 +61,16 @@ export class AddEstudianteComponent implements OnInit {
   }
 
   setEstudiantesInscritos(): void{
-    this.httpService.post(this.messenger.urlServer + 'Usuario/getNombreEstudiantes', {}).subscribe(
+    this.httpService.post(this.messenger.urlServer + 'Grupo/verProfesorSemestre',
+      {
+        ano: +this.data.ano,
+        periodo: this.data.periodo,
+        grupo: this.data.numero,
+        codigoCurso: this.data.codigo
+      }).subscribe(
       (resp: HttpResponse<any>) =>
       {
-        this.estudiantes = resp;
-        console.log(resp);
+        this.estudianteSemestre = resp;
       }
     );
   }
