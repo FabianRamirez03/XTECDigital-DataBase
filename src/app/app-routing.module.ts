@@ -25,12 +25,12 @@ const routes: Routes = [
   {path: 'Files', component: FilesComponent}, // Wajo?
   {path: 'Semestre', component: SemestreComponent},  // listo x2
   {path: 'Grupos', component: AddsemestreComponent}, // Listo x2
-  {path: 'AddProfesor', component: AddProfesorComponent},
-  {path: 'AddEstudiante', component: AddEstudianteComponent},
+  {path: 'AddProfesor', component: AddProfesorComponent}, // Listo x2
+  {path: 'AddEstudiante', component: AddEstudianteComponent}, // casi listo
   {path: 'NotasEstudiante', component: NotasComponent},
   {path: 'Noticias', component: NoticiasComponent},
   {path: 'Evaluar', component: EvaluarComponent},
-  {path: 'ListaEstudiantes', component: ListaEstudiantesComponent},
+  {path: 'ListaEstudiantes', component: ListaEstudiantesComponent}, // Practicament esta
   {path: 'ReporteNotas', component: ReporteNotasComponent},
   {path: 'Asignaciones', component: AsignacionesComponent},
   {path: 'Rubros', component: RubrosComponent},
