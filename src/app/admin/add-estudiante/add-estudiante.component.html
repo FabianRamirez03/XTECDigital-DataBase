@@ -24,7 +24,7 @@
       <td></td>
       <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
-    <tr *ngFor="let estu of estudianteSemestre">
+    <tr *ngFor="let estu of estudianteSemestre| slice: 1">
       <td><b>{{estu.carnet}}</b></td>
       <td>{{estu.nombre}}</td>
       <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>

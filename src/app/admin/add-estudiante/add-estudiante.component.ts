@@ -15,30 +15,22 @@ export class AddEstudianteComponent implements OnInit {
   estudianteSemestre: any;
   // tslint:disable-next-line:max-line-length
   constructor(public httpService: HttpClient, public messenger: MessengerService, @Inject(MAT_DIALOG_DATA) public data: {codigo: string, numero, ano: string, periodo: string}) {
-    this.estudianteSemestre = [
-      {carnet: '123',
-        nombre: 'mariana'
-      }, {carnet: '432',
-      nombre: 'katherine'}];
   }
 
   ngOnInit(): void {
     this.setEstudiantes();
-    console.log(this.data);
+    this.setEstudiantesInscritos();
   }
 
   agregar(): void{
     this.carnetEstudiante = (document.getElementById('estudiante') as HTMLInputElement).value;
-    console.log({
-      carnet: this.carnetEstudiante,
-      codigoCurso: this.data.codigo,
-      numeroGrupo: this.data.numero
-    });
     this.httpService.post(this.messenger.urlServer + 'Usuario/agregarEstudiantesGrupo',
       {
         carnet: this.carnetEstudiante,
         codigoCurso: this.data.codigo,
-        numeroGrupo: this.data.numero
+        numeroGrupo: this.data.numero,
+        ano: +this.data.ano,
+        periodo: this.data.periodo
       }).subscribe(
       (resp: HttpResponse<any>) =>
       {
@@ -61,7 +53,7 @@ export class AddEstudianteComponent implements OnInit {
   }
 
   setEstudiantesInscritos(): void{
-    this.httpService.post(this.messenger.urlServer + 'Grupo/verProfesorSemestre',
+    this.httpService.post(this.messenger.urlServer + 'Grupo/verEstudiantesGrupo',
       {
         ano: +this.data.ano,
         periodo: this.data.periodo,
@@ -71,6 +63,7 @@ export class AddEstudianteComponent implements OnInit {
       (resp: HttpResponse<any>) =>
       {
         this.estudianteSemestre = resp;
+        console.log(resp);
       }
     );
   }
