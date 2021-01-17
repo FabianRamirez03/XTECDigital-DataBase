@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
 @Component({
   selector: 'app-lista-estudiantes',
   templateUrl: './lista-estudiantes.component.html',
@@ -9,10 +11,11 @@ import autoTable from 'jspdf-autotable';
 export class ListaEstudiantesComponent implements OnInit {
   nombreCurso = 'Bases de Datos';
   grupo = 1;
-  estudiantes = [{primernombre: 'Mariana', apellidos: 'Vargas Ramirez', carnet: 2018086985}, {primernombre: 'Mario Alexis', apellidos: 'Araya Chacon', carnet: 2018319178}];
-  constructor() { }
+  estudiantes: any;
+  constructor(public httpService: HttpClient, public messenger: MessengerService) { }
 
   ngOnInit(): void {
+    this.setEstudiantes();
   }
 
   openPDFCategorias(): void {
@@ -27,6 +30,23 @@ export class ListaEstudiantesComponent implements OnInit {
       startY: 45,
     });
     doc.save('Estudiantes ' + this.nombreCurso + '.pdf');
+  }
+
+
+  setEstudiantes(): void{
+    this.httpService.post(this.messenger.urlServer + 'Grupo/verEstudiantesGrupo',
+      {
+        ano: +this.messenger.curso.ano,
+        periodo: this.messenger.curso.periodo,
+        grupo: this.messenger.curso.grupo,
+        codigoCurso: this.messenger.curso.codigo
+      }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.estudiantes = resp;
+        console.log(resp);
+      }
+    );
   }
 
 }

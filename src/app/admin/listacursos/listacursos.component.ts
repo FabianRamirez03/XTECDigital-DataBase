@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {MessengerService} from '../../MessengerService';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-listacursos',
@@ -16,7 +17,7 @@ export class ListacursosComponent implements OnInit {
   creditos: string;
   habilitado: boolean;
   cedulaAdmin: string;
-  constructor(public httpService: HttpClient, public messenger: MessengerService ) {
+  constructor(public httpService: HttpClient, public messenger: MessengerService, private router: Router ) {
   }
 
   setCursos(): void{
@@ -24,7 +25,6 @@ export class ListacursosComponent implements OnInit {
       (resp: HttpResponse<any>) =>
       {
         this.cursos = resp;
-        console.log(resp);
       }
       );
   }
@@ -68,5 +68,6 @@ export class ListacursosComponent implements OnInit {
       }
     );
   }
+
 
 }

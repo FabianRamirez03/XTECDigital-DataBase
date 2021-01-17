@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {MessengerService} from '../../MessengerService';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-lista-cursos',
@@ -9,7 +10,7 @@ import {MessengerService} from '../../MessengerService';
 })
 export class ListaCursosComponent implements OnInit {
   misGrupos: any;
-  constructor(public httpService: HttpClient, public messenger: MessengerService) { }
+  constructor(public httpService: HttpClient, public messenger: MessengerService, private router: Router) { }
 
   ngOnInit(): void {
     this.setMisGrupos();
@@ -26,4 +27,14 @@ export class ListaCursosComponent implements OnInit {
     );
   }
 
+  verDetalles(nombre, grupo, ano, periodo, codigo): void{
+    this.messenger.curso = {
+      nombre,
+      grupo,
+      ano,
+      periodo,
+      codigo
+    };
+    this.router.navigate(['/', 'ListaEstudiantes']);
+  }
 }

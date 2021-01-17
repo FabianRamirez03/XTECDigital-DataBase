@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'NotasEstudiante', component: NotasComponent},
   {path: 'Noticias', component: NoticiasComponent},
   {path: 'Evaluar', component: EvaluarComponent},
-  {path: 'ListaEstudiantes', component: ListaEstudiantesComponent}, // Practicament esta
+  {path: 'ListaEstudiantes', component: ListaEstudiantesComponent}, // Listo x2
   {path: 'ReporteNotas', component: ReporteNotasComponent},
   {path: 'Asignaciones', component: AsignacionesComponent},
   {path: 'Rubros', component: RubrosComponent},

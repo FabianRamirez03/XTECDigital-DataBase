@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 export class MessengerService {
   usuario: any = {};
   tipoUsuario: any;
+  curso: any = {};
   urlServer = 'https://localhost:5001/';
   private messageSource: BehaviorSubject<string> = new BehaviorSubject('initialValue');
   public message = this.messageSource.asObservable();
