@@ -21,7 +21,6 @@ export class PantallaCursosComponent implements OnInit {
       (resp: HttpResponse<any>) =>
       {
         this.misGrupos = resp;
-        console.log(resp);
       }
     );
   }

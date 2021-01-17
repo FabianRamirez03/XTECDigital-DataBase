@@ -11,12 +11,22 @@
               <thead>
               <tr>
                 <th>Nombre</th>
+                <th>Grupo</th>
+                <th>Carrera</th>
+                <th>Creditos</th>
+                <th>Año</th>
+                <th>Periodo</th>
                 <th></th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let curso of misGrupos | slice: 1">
-                <td>{{curso.nombre + ' Grupo: ' + curso.grupo}}</td>
+                <td>{{curso.nombre}}</td>
+                <td>{{curso.grupo}}</td>
+                <td>{{curso.carrera}}</td>
+                <td>{{curso.creditos}}</td>
+                <td>{{curso.ano}}</td>
+                <td>{{curso.periodo}}</td>
                 <td> <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark">Ir</button></td>
               </tr>
               </tbody>
