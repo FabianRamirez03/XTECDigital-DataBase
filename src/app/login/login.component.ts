@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {MessengerService} from '../MessengerService';
+import {Md5} from 'md5-typescript';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     this.user = (document.getElementById('user') as HTMLInputElement).value;
     this.password = (document.getElementById('password') as HTMLInputElement).value;
     this.httpService.post(this.messenger.urlServer + 'Usuario/validarUser',
-      { carnet: this.user, password: this.password}).subscribe(
+      { carnet: this.user,
+            password: Md5.init(this.password)}).subscribe(
       (resp: HttpResponse<object>) =>
       {
         this.existe = resp;
