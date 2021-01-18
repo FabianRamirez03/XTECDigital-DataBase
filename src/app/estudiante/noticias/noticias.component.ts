@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-noticias',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponent implements OnInit {
   noticias: any;
-  constructor() {
+  misNoticias: any;
+  constructor( public httpService: HttpClient, public messenger: MessengerService, private router: Router ) {
     this.noticias = [{profesor: 'Milton Villegas',
     comunicado: 'bla bla bla',
     fecha: '12/3/2020',
@@ -23,6 +27,19 @@ export class NoticiasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setMisNoticias();
   }
 
+
+  setMisNoticias(): void{
+    this.httpService.post(this.messenger.urlServer + 'Noticias/verTodasNoticiasEstudiante', {
+      carnet: this.messenger.usuario.carnet
+    }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.misNoticias = resp;
+        console.log(resp);
+      }
+    );
+  }
 }

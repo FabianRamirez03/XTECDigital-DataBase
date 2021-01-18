@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'AddProfesor', component: AddProfesorComponent}, // Listo x2
   {path: 'AddEstudiante', component: AddEstudianteComponent}, // Listo x2
   {path: 'NotasEstudiante', component: NotasComponent},
-  {path: 'Noticias', component: NoticiasComponent},
+  {path: 'Noticias', component: NoticiasComponent},  // Listo x2
   {path: 'Evaluar', component: EvaluarComponent},
   {path: 'ListaEstudiantes', component: ListaEstudiantesComponent}, // Listo x2
   {path: 'ReporteNotas', component: ReporteNotasComponent},

@@ -98,6 +98,7 @@ export class AddNoticiaComponent implements OnInit {
       }
     );
   }
+
   setMisNoticias(): void{
     this.httpService.post(this.messenger.urlServer + 'Noticias/verNoticiasProfesor', {
       cedulaAutor: this.messenger.usuario.carnet

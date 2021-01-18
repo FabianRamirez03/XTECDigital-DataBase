@@ -177,8 +177,9 @@ html, body {
 }
 .login-dark {
   position: relative;
-  height: 1200px;
+  height: 100%;
   background:#475d62 url(https://www.tec.ac.cr/hoyeneltec/sites/default/files/styles/colorbox/public/media/img/main/aerea_tec.jpg);
   background-size: cover;
+  background-attachment: fixed;
 
 }
