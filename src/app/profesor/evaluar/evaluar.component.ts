@@ -6,8 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./evaluar.component.scss']
 })
 export class EvaluarComponent implements OnInit {
-  rubros = ['Examenes', 'Tareas'];
-  evaluaciones = ['Examen 1', 'Tarea Corta'];
+  rubro = 'Examenes';
+  evaluaciones = ['Examen 1', 'Examen 2'];
   imageByte: string;
   constructor() {
   }

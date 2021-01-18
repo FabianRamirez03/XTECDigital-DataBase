@@ -6,12 +6,12 @@
 <div class="container-lg">
 <ejs-accordion expandMode='Single'>
   <e-accordionitems>
-    <ng-container *ngFor="let rubro of rubros; let i = index">
+    <ng-container>
         <e-accordionitem expanded='true' header='{{rubro}}'>
-          <ng-template #content *ngFor="let eval of evaluaciones">
+          <ng-template #content >
             <div id='athletics'>
               <div class="container">
-                <div class="row">
+                <div class="row" *ngFor="let eval of evaluaciones; let j = index">
                   <div class="col-sm">
                     <div><span class='e-acrdn-icons e-content-icon marathon'></span> {{eval}}</div>
                   </div>
