@@ -44,7 +44,6 @@ export class ListaEstudiantesComponent implements OnInit {
       (resp: HttpResponse<any>) =>
       {
         this.estudiantes = resp;
-        console.log(resp);
       }
     );
   }

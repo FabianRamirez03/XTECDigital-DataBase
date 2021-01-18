@@ -88,7 +88,8 @@
 
 .inner {
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
+  max-height: 60%;
   backdrop-filter: blur(3px);
   border-radius: 20px
 }

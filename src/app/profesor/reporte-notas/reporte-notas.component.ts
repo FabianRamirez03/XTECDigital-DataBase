@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {jsPDF} from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {MessengerService} from "../../MessengerService";
 
 @Component({
   selector: 'app-reporte-notas',
@@ -16,9 +18,11 @@ export class ReporteNotasComponent implements OnInit {
     {primernombre: 'Mario', apellidos: 'Araya Chacon',
     carnet: 2018319178, rubro: 'Examenes', nombreEvaluacion: 'Parcial 1', porcentajeObtenido: 20, notaObtenida: 100,
     porcentajeEvaluacion: 20, notaFinal: 90}];
-  constructor() { }
+  misEstudiantes: any;
+  constructor(public httpService: HttpClient, public messenger: MessengerService) { }
 
   ngOnInit(): void {
+    this.setEstudiantes();
   }
 
   openPDFCategorias(): void {
@@ -33,5 +37,24 @@ export class ReporteNotasComponent implements OnInit {
       startY: 45,
     });
     doc.save('Notas ' + this.nombreCurso + '.pdf');
+  }
+
+
+  setEstudiantes(): void{
+    console.log({
+      codigoCurso: this.messenger.curso.codigo,
+      numeroGrupo: this.messenger.curso.grupo
+    });
+    this.httpService.post(this.messenger.urlServer + 'Grupo/verNotasGrupo',
+      {
+        codigoCurso: this.messenger.curso.codigo,
+        numeroGrupo: this.messenger.curso.grupo
+      }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.misEstudiantes = resp;
+        console.log(resp);
+      }
+    );
   }
 }

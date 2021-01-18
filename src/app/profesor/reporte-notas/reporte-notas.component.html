@@ -28,15 +28,15 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let estudiante of estudiantes">
-                <td>{{estudiante.primernombre + ' ' + estudiante.apellidos}}</td>
+              <tr *ngFor="let estudiante of misEstudiantes | slice: 1">
+                <td>{{estudiante.nombreEstudiante}}</td>
                 <td>{{estudiante.carnet}}</td>
                 <td>{{estudiante.rubro}}</td>
                 <td>{{estudiante.nombreEvaluacion}}</td>
                 <td>{{estudiante.notaObtenida}}</td>
                 <td>{{estudiante.porcentajeObtenido}}</td>
                 <td>{{estudiante.porcentajeEvaluacion}}</td>
-                <td>{{estudiante.notaFinal}}</td>
+                <td>{{estudiante.notaFinalCurso}}</td>
               </tr>
               </tbody>
             </table>
