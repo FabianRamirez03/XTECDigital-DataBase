@@ -21,10 +21,10 @@
     <th></th>
   </tr>
   <tr>
-    <th><input type="text" id="nombre" placeholder="Nombre"></th>
+    <th><input type="text" id="nombres" placeholder="Nombre"></th>
     <th><input type="date" id="birthDate" class="form-control"></th>
     <th><input type="text" id="peso" placeholder="Peso"></th>
-    <input type="file" id="photo"  #image    name="file" required="required">
+    <input type="file" id="photo"  (change)="uploadFile($event)"  name="file" required="required">
     <th><input type="text" id="cantidad" placeholder="Cantidad Personas"></th>
     <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
   </tr>
@@ -32,7 +32,7 @@
     <th>{{asignacion.nombre}}</th>
     <th>{{asignacion.fechaFin}}</th>
     <th>{{asignacion.porcentaje}}</th>
-    <td><button type="button" class="mt-auto btn btn-primary" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar Especificación</button></td>
+    <td><button type="button" class="mt-auto btn btn-primary" (click)="descargarAsign(asignacion.rubro, asignacion.nombreEvaluacion)" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar Especificación</button></td>
     <th>{{asignacion.cantPersonas}}</th>
     <th><button type="button" class="btn btn-sm btn-primary btn-create" (click)="evaluar(asignacion.nombre)">Evaluar</button></th>
   </tr>

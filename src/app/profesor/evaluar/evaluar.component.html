@@ -13,22 +13,23 @@
           <ng-template #content >
             <div id='athletics'>
               <div class="container">
-                <div class="row" *ngFor="let eval of evaluaciones; let j = index">
+                <div class="row" *ngFor="let eval of misEvaluaciones | slice: 1; let j = index">
                   <div class="col-sm">
-                    <div><span class='e-acrdn-icons e-content-icon marathon'></span> {{eval}}</div>
+                    <div><span class='e-acrdn-icons e-content-icon marathon'></span> {{eval.carnet}}</div>
                   </div>
                   <div class="col-sm">
-                    <div>Aqui va el nombre del archivo a descargar </div>
-                    <button class="btn"><i class="fa fa-download"></i>Descargar</button>
+                    <div>{{eval.nombre}}</div>
+                    <button class="btn" (click)="descargarSol(eval.carnet)"><i class="fa fa-download"></i>Descargar</button>
                   </div>
                   <div class="col-sm">
                     <div>Subir archivo de retroalimentación</div>
-                    <input type="file" id="photo"  #image (change)="setByteArray(image.files)" name="file" required="required">
+                    <input type="file" id="photo"  #image (change)="uploadFile($event)" name="file" required="required">
                   </div>
                   <div class="col-sm">
                     <div>Calificación:</div>
-                    <input type="number" required="required">
-                    <button class="btn"><i class="fa fa-bullhorn"></i>Publicar</button>
+                    <input type="number" id="nota" required="required">
+                    <input type="text" id="comentario" required="required">
+                    <button class="btn" (click)="publicar(eval.carnet)"><i class="fa fa-bullhorn"></i>Publicar</button>
                   </div>
                 </div>
               </div>

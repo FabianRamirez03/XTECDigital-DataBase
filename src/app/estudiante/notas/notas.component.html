@@ -36,10 +36,10 @@
                 <div class="form-group" *ngIf="asignacion.rubro == rubro.rubro">
                   <label class="col-sm-3 control-label" for="photo" >Enviar Solución</label>
                   <div class="col-sm-9">
-                    <input type="file" id="photo"  #image (change)="setByteArray(image.files)" name="file" required="required">
+                    <input type="file" id="photo"  #image (change)="uploadFile($event, asignacion.rubro, asignacion.nombreEvaluacion)" name="file" required="required">
                   </div>
-                  <button type="button" class="mt-auto btn btn-primary" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar asignación</button>
-                  <button type="button" class="mt-auto btn btn-primary" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar solución</button>
+                  <button type="button" class="mt-auto btn btn-primary" (click)="descargarAsign(asignacion.rubro, asignacion.nombreEvaluacion)"data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar asignación</button>
+                  <button type="button" class="mt-auto btn btn-primary" (click)="descargarSol(asignacion.rubro, asignacion.nombreEvaluacion)" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar solución</button>
 
                 </div>
                 <!-- termina asignacion -->

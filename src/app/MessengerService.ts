@@ -10,8 +10,8 @@ export class MessengerService {
   tipoUsuario: any;
   curso: any = {};
   evaluacion: any = {};
-  urlServer = 'https://localhost:5001/';
-  // urlServer = 'https://xtecdigicalserver.azurewebsites.net/';
+  // urlServer = 'https://localhost:5001/';
+  urlServer = 'https://xtecdigicalserver.azurewebsites.net/';
   private messageSource: BehaviorSubject<string> = new BehaviorSubject('initialValue');
   public message = this.messageSource.asObservable();
   public setMessage(value: any): void{

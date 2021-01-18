@@ -27,12 +27,12 @@ const routes: Routes = [
   {path: 'Grupos', component: AddsemestreComponent}, // Listo x2
   {path: 'AddProfesor', component: AddProfesorComponent}, // Listo x2
   {path: 'AddEstudiante', component: AddEstudianteComponent}, // Listo x2
-  {path: 'NotasEstudiante', component: NotasComponent}, // Listo
+  {path: 'NotasEstudiante', component: NotasComponent}, // Listo x2
   {path: 'Noticias', component: NoticiasComponent},  // Listo x2
   {path: 'Evaluar', component: EvaluarComponent},
   {path: 'ListaEstudiantes', component: ListaEstudiantesComponent}, // Listo x2
   {path: 'ReporteNotas', component: ReporteNotasComponent},  //  Listo x2
-  {path: 'Asignaciones', component: AsignacionesComponent},
+  {path: 'Asignaciones', component: AsignacionesComponent}, // Listo x2
   {path: 'Rubros', component: RubrosComponent},  // Listo x2
   {path: 'AddNoticia', component: AddNoticiaComponent}, // Lista x2
   {path: 'PantallaCursos', component: PantallaCursosComponent}, // Listo x2
