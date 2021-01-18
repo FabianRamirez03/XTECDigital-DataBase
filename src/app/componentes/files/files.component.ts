@@ -14,8 +14,7 @@ import {MessengerService} from '../../MessengerService';
   providers: [ NavigationPaneService, ToolbarService, DetailsViewService]
 })
 export class FilesComponent implements OnInit {
-   public hostUrl = 'https://localhost:5001/Documentos';
-  // public hostUrl = 'http://localhost:62869/';
+   public hostUrl = this.messenger.urlServer + 'Documentos';
   public ajaxSettings: object;
   public enablePersistence: boolean;
   public enableRtl: boolean;
@@ -25,7 +24,10 @@ export class FilesComponent implements OnInit {
   public curso: string;
   public isAdmin: boolean;
   public grupo: number;
-  constructor(public messenger: MessengerService) {this.curso = 'CE3101'; this.grupo = 1;  }
+  constructor(public messenger: MessengerService) {
+    this.curso = this.messenger.curso.codigo;
+    this.grupo = this.messenger.curso.grupo;
+  }
 
   public ngOnInit(): void {
     this.ajaxSettings = {
@@ -60,7 +62,7 @@ export class FilesComponent implements OnInit {
   // File Manager's beforeSend event
   beforeSend(args: any): any {
     // Add custom parameter
-    if (args.action === 'Upload') {
+    if (args.action === 'Upload' && this.messenger.tipoUsuario === 'profesor') {
       const data = JSON.parse(args.ajaxSettings.data);
       // Allow custom data for upload operations
       data.push({ Curso: this.curso});

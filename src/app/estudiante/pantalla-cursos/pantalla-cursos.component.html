@@ -8,9 +8,6 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/Noticias">Noticias</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" routerLink="/Login">Cerrar Sesion</a>
         </li>
       </ul>
@@ -51,7 +48,7 @@
                 <td>{{curso.creditos}}</td>
                 <td>{{curso.ano}}</td>
                 <td>{{curso.periodo}}</td>
-                <td> <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark">Ir</button></td>
+                <td> <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" (click)="verDetalles(curso.nombre, curso.grupo, curso.codigo)">Ir</button></td>
               </tr>
               </tbody>
             </table>

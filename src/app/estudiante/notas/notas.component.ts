@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {MessengerService} from "../../MessengerService";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-notas',
@@ -9,7 +12,7 @@ export class NotasComponent implements OnInit {
   rubros: any;
   notaFinal: any;
   imageByte: string;
-  constructor() {
+  constructor( public httpService: HttpClient, public messenger: MessengerService, private router: Router) {
     this.rubros = [
       {nombre: 'Quiz',
         notagen: '70',
@@ -36,6 +39,7 @@ export class NotasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.messenger.curso.codigo);
   }
   setByteArray(files): void {
     const reader = new FileReader();

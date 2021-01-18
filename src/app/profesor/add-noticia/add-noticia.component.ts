@@ -22,19 +22,6 @@ export class AddNoticiaComponent implements OnInit {
 
 
   constructor( public httpService: HttpClient, public messenger: MessengerService, private router: Router ) {
-    this.noticias = [{profesor: 'Milton Villegas',
-      comunicado: 'bla bla bla',
-      fecha: '12/3/2020',
-      grupo: '1',
-      titulo: 'Proyecto',
-      curso: 'Intro'},
-      {profesor: 'Milton Villegas',
-        comunicado: 'bla bla bla',
-        fecha: '12/3/2020',
-        grupo: '1',
-        titulo: 'Proyecto de entrega ',
-        curso: 'Intro'}];
-    this.cursos = [{nombre: 'bases'}, {nombre: 'senales'}, {nombre: 'anpi'}];
   }
 
   ngOnInit(): void {

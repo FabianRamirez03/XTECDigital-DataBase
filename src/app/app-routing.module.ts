@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/Login', pathMatch: 'full' },
   {path: 'Login', component: LoginComponent},  // listo x2
   {path: 'ListaCursos', component: ListacursosComponent},  // listo x2
-  {path: 'Files', component: FilesComponent}, // Wajo?
+  {path: 'Files', component: FilesComponent}, // listo x2
   {path: 'Semestre', component: SemestreComponent},  // listo x2
   {path: 'Grupos', component: AddsemestreComponent}, // Listo x2
   {path: 'AddProfesor', component: AddProfesorComponent}, // Listo x2
@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'Noticias', component: NoticiasComponent},  // Listo x2
   {path: 'Evaluar', component: EvaluarComponent},
   {path: 'ListaEstudiantes', component: ListaEstudiantesComponent}, // Listo x2
-  {path: 'ReporteNotas', component: ReporteNotasComponent},
+  {path: 'ReporteNotas', component: ReporteNotasComponent},  //  Listo x2
   {path: 'Asignaciones', component: AsignacionesComponent},
   {path: 'Rubros', component: RubrosComponent},
   {path: 'AddNoticia', component: AddNoticiaComponent}, // Lista x2

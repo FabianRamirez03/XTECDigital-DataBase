@@ -14,6 +14,7 @@ export class ListaCursosComponent implements OnInit {
 
   ngOnInit(): void {
     this.setMisGrupos();
+    console.log(this.messenger.tipoUsuario);
   }
 
   setMisGrupos(): void{
