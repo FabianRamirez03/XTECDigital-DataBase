@@ -15,15 +15,12 @@
           <div class="col-md-7 px-3">
             <div class="card-block px-6">
               <h4 class="card-title"><input type="text" id="titulo" placeholder="Titulo"></h4>
-              <p class="card-text"><select class="form-control" id="periodo" >
-                <option *ngFor="let curso of cursos" value="{{curso.nombre}}">{{curso.nombre}}</option>
+              <p class="card-text"><select class="form-control" id="grupo" style="width: auto" >
+                <option *ngFor="let grupo of misGrupos | slice: 1" value="{{grupo.codigo}}|{{grupo.grupo}}">{{grupo.nombre + "Grupo: " + grupo.grupo}}</option>
               </select></p>
               <p class="card-text">
-                <input type="text" id="grupo" placeholder="Grupo">
-              </p>
-              <p class="card-text">
-              <textarea class="form-control" id="comunicado" aria-label="With textarea"></textarea></p>
-              <a href="#" class="mt-auto btn btn-primary" >Agregar</a>
+              <textarea type="text" class="form-control" id="comunicado" aria-label="With textarea" [(ngModel)]="comunicado"></textarea></p>
+              <a class="mt-auto btn btn-primary" (click)="agregar()">Agregar</a>
               <br>
             </div>
           </div>

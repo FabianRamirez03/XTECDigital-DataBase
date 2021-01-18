@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {MessengerService} from '../../MessengerService';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lista-cursos',
