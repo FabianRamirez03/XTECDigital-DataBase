@@ -14,8 +14,7 @@
 
   <tr style="background-color:#32A9EE;color:white;">
     <th>Nombre</th>
-    <th>Feha</th>
-    <th>Hora de envio</th>
+    <th>Fecha</th>
     <th>Peso</th>
     <th>Especificacion</th>
     <th>Cantidad Personas</th>
@@ -24,19 +23,17 @@
   <tr>
     <th><input type="text" id="nombre" placeholder="Nombre"></th>
     <th><input type="date" id="birthDate" class="form-control"></th>
-    <th><input type="time" id="inputMDEx1" class="form-control"></th>
     <th><input type="text" id="peso" placeholder="Peso"></th>
-    <th>Especificacion</th>
+    <input type="file" id="photo"  #image    name="file" required="required">
     <th><input type="text" id="cantidad" placeholder="Cantidad Personas"></th>
     <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
   </tr>
-  <tr *ngFor="let asignacion of asignaciones">
+  <tr *ngFor="let asignacion of misAsignaciones | slice: 1">
     <th>{{asignacion.nombre}}</th>
-    <th>{{asignacion.fecha}}</th>
-    <th>{{asignacion.hora}}</th>
-    <th>{{asignacion.peso}}</th>
-    <th>{{asignacion.especificacion}}</th>
-    <th>{{asignacion.personas}}</th>
+    <th>{{asignacion.fechaFin}}</th>
+    <th>{{asignacion.porcentaje}}</th>
+    <td><button type="button" class="mt-auto btn btn-primary" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar Especificación</button></td>
+    <th>{{asignacion.cantPersonas}}</th>
     <th><button type="button" class="btn btn-sm btn-primary btn-create">Evaluar</button></th>
   </tr>
 </table>

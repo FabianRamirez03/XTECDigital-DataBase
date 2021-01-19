@@ -32,8 +32,8 @@ export class RubrosComponent implements OnInit {
     console.log('editado');
   }
 
-  asignacionesDialog(): void {
-    const param = [null];
+  asignacionesDialog(rubro): void {
+    const param = {rubro};
     const dialogRef = this.dialog.open(AsignacionesComponent, {
       width: '85%',
       height: '70%',

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {AddProfesorComponent} from '../../admin/add-profesor/add-profesor.component';
-import {MatDialog} from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
+import {Router} from '@angular/router';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-asignaciones',
@@ -9,7 +11,9 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class AsignacionesComponent implements OnInit {
   asignaciones: any;
-  constructor() {
+  misAsignaciones: any;
+  // tslint:disable-next-line:max-line-length
+  constructor( public httpService: HttpClient, public messenger: MessengerService, private router: Router, @Inject(MAT_DIALOG_DATA) public data: {rubro: string}) {
     this.asignaciones = [
       {nombre: 'Quiz1', fecha: '21/5/202', hora: '21:00',
         peso: '12', especificacion: 'file', personas: '2'
@@ -19,6 +23,7 @@ export class AsignacionesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setMisAsignaciones();
   }
 
   agregar(): void{
@@ -26,5 +31,23 @@ export class AsignacionesComponent implements OnInit {
   }
   eliminar(): void{
     console.log('eliminado');
+  }
+  setMisAsignaciones(): void{
+    this.httpService.post(this.messenger.urlServer + 'Evaluacion/verEvaluacionesRubro', {
+      codigoCurso: this.messenger.curso.codigo,
+      numeroGrupo: +this.messenger.curso.grupo,
+      rubro: this.data.rubro,
+    }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        // tslint:disable-next-line:triple-equals
+        if (resp[0].error != 'null'){
+          alert(resp[0].error);
+        }else{
+          this.misAsignaciones = resp;
+          console.log(resp);
+        }
+      }
+    );
   }
 }
