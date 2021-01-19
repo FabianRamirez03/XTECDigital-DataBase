@@ -28,14 +28,14 @@
       <td><input type="text" id="porcentaje" placeholder="Porcentaje"></td>
       <td></td>
       <td></td>
-      <td><button type="button" (click)="agregar()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
+      <td><button type="button" (click)="crearRubro()" class="btn btn-sm btn-primary btn-create">Agregar</button></td>
     </tr>
-    <tr *ngFor="let rubro of rubros">
-      <td><input type="text" id="nombrerub" placeholder="{{rubro.nombre}}"></td>
-      <td><input type="text" id="porcentajerub" placeholder="{{rubro.porcentaje}}"></td>
+    <tr *ngFor="let rubro of misRubros | slice: 1">
+      <td>{{rubro.rubro}}</td>
+      <td><input type="text" id="{{rubro.rubro}}porc" placeholder="{{rubro.porcentaje}}"></td>
       <td><button type="button" (click)="asignacionesDialog()" class="btn btn-sm btn-primary btn-create">Asignaciones</button></td>
-      <td><button type="button" (click)="editar()" class="btn btn-sm btn-primary btn-create">Editar</button></td>
-      <td><a class="btn btn-danger" (click)="eliminar()"><em class="fa fa-trash"></em></a></td>
+      <td><button type="button" (click)="editarRubro(rubro.rubro)" class="btn btn-sm btn-primary btn-create">Editar</button></td>
+      <td><a class="btn btn-danger" (click)="eliminarRubro(rubro.rubro)"><em class="fa fa-trash"></em></a></td>
     </tr>
   </table>
 </div>
