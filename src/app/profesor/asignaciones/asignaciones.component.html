@@ -34,7 +34,7 @@
     <th>{{asignacion.porcentaje}}</th>
     <td><button type="button" class="mt-auto btn btn-primary" data-mdb-ripple-color="dark" style="margin: 8px; padding-top: 8px">Descargar Especificación</button></td>
     <th>{{asignacion.cantPersonas}}</th>
-    <th><button type="button" class="btn btn-sm btn-primary btn-create">Evaluar</button></th>
+    <th><button type="button" class="btn btn-sm btn-primary btn-create" (click)="evaluar(asignacion.nombre)">Evaluar</button></th>
   </tr>
 </table>
 

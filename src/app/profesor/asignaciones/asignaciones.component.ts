@@ -50,4 +50,9 @@ export class AsignacionesComponent implements OnInit {
       }
     );
   }
+
+  evaluar(evaluacion): void{
+    this.messenger.evaluacion = {rubro: this.data.rubro, evaluacion};
+    this.router.navigate(['/', 'Evaluar']);
+  }
 }

@@ -9,6 +9,7 @@ export class MessengerService {
   usuario: any = {};
   tipoUsuario: any;
   curso: any = {};
+  evaluacion: any = {};
   urlServer = 'https://localhost:5001/';
   // urlServer = 'https://xtecdigicalserver.azurewebsites.net/';
   private messageSource: BehaviorSubject<string> = new BehaviorSubject('initialValue');
