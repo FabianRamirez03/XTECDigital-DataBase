@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {MessengerService} from "../../MessengerService";
-import {Router} from "@angular/router";
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {MessengerService} from '../../MessengerService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-notas',
@@ -12,6 +12,7 @@ export class NotasComponent implements OnInit {
   rubros: any;
   notaFinal: any;
   imageByte: string;
+  misRubros;
   constructor( public httpService: HttpClient, public messenger: MessengerService, private router: Router) {
     this.rubros = [
       {nombre: 'Quiz',
@@ -39,7 +40,7 @@ export class NotasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.messenger.curso.codigo);
+    this.verNotasEstudianteGrupo();
   }
   setByteArray(files): void {
     const reader = new FileReader();
@@ -49,5 +50,24 @@ export class NotasComponent implements OnInit {
       const bytes = reader.result;
       this.imageByte = bytes.toString();
     };
+  }
+
+  verNotasEstudianteGrupo(): void{
+    console.log({
+      carnet: this.messenger.usuario.carnet,
+      codigoCurso: this.messenger.curso.codigo,
+      grupo: this.messenger.curso.grupo,
+    });
+    this.httpService.post(this.messenger.urlServer + 'Evaluacion/verNotasEstudianteGrupo', {
+      carnet: this.messenger.usuario.carnet,
+      codigoCurso: this.messenger.curso.codigo,
+      numeroGrupo: this.messenger.curso.grupo,
+    }).subscribe(
+      (resp: HttpResponse<any>) =>
+      {
+        this.misRubros = resp;
+        console.log(resp);
+      }
+    );
   }
 }
